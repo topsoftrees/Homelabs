@@ -1,3 +1,4 @@
+*Objectives:*
 -	Deploy a NSM
 -	Understand more about networking the equipment I have
 -	Understand network tap vs port mirroring
