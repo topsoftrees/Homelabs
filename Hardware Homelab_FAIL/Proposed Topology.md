@@ -1,4 +1,6 @@
+Initial topology: 
 
+<img width="767" alt="Screen Shot 2022-01-17 at 10 29 26 AM" src="https://user-images.githubusercontent.com/74877876/149797726-d9eac54a-4660-48dd-a960-38c2605bc853.png">
 
 
 R1 (ASUS):
