@@ -1,6 +1,6 @@
 After going through the first phase of considerations, the homelab is going to be re-worked to the following:
 
-
+<img width="633" alt="Screen Shot 2022-01-17 at 10 37 00 AM" src="https://user-images.githubusercontent.com/74877876/149798921-6853cf7d-ba1c-4cbb-84cc-2a4490a36238.png">
 
 
 R1 (ASUS):
