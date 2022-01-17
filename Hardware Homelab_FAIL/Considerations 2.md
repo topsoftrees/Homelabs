@@ -7,5 +7,4 @@
 4.	*How is everything going to be protected if I don’t have a firewall?* I’m going buy another device if necessary and implement a firewall. 
 
 5.	*How can I implement a firewall with two routers and a computer with one NIC?*These two videos helped:
-https://cs.wmich.edu/~rhardin/cs4540/fpSense.pdf 
-https://www.youtube.com/watch?v=FPgPHJvLmh0 
+https://cs.wmich.edu/~rhardin/cs4540/fpSense.pdf, https://www.youtube.com/watch?v=FPgPHJvLmh0 
