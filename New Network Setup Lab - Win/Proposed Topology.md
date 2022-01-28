@@ -6,6 +6,7 @@ Equipment:
 
 Initial topology: 
 
+<img width="765" alt="Screen Shot 2022-01-28 at 10 45 38 AM" src="https://user-images.githubusercontent.com/74877876/151577362-14bb66d1-755a-4ada-89ad-d873240d244b.png">
 
 
 Firewall (SG-1100):
