@@ -7,7 +7,7 @@ I’m going with a switch because it looks like a VLAN will be required for the 
 
 After going through the first phase of considerations, the homelab is going to be re-worked to the following:
 
-
+<img width="655" alt="Screen Shot 2022-01-28 at 10 46 10 AM" src="https://user-images.githubusercontent.com/74877876/151577493-64b94072-f861-41f4-bf24-5a7bbe892a8d.png">
 
 Firewall (SG-1100):
 -	Modem will connect to WAN port with an ISP assigned IP
