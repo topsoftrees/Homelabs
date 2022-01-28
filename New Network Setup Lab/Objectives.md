@@ -1,0 +1,7 @@
+-	Be more efficient in the planning and implementation. 
+-	Create fast test cases. 
+-	Know the equipment and what it’s capable of. 
+-	Make it easier on yourself without over-spending.
+-	Make educated moves based on what you know. 
+-	Build configuration skills and try not relying so heavily on YouTube for configurations.
+-	Document the troubleshooting process.
