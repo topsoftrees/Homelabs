@@ -12,8 +12,8 @@ Gathered information:
 
 
 Troubleshooting:
--	Uninstalled and reinstalled Unifi controller – did not resolve issue
--	Tried to SSH into the AP – unable to SSH into the AP
+-	Uninstalled and reinstalled Unifi controller – did not resolve issue.
+-	Tried to SSH into the AP – unable to SSH into the AP.
 -	Knowing the controller is 192.168.50.3, I think the network doesn’t associate unifi with 192.168.50.3. Went to https://192.168.50.3:8443 > Settings> Admin > and changed the controller host to 192.168.50.3 instead of mydomain.unifi.com. After this, the 192.168.50.3 controller detected the AP and started adopting. 
 
 Resolution: 
