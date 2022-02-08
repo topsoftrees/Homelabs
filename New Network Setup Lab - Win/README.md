@@ -1,6 +1,6 @@
 This is basically a continuation of the previous lab. The previous lab resulted in both routers not having the capability for a firewall and to connect to each other. A different, more advanced piece of equipment is needed – I purchased the Netgate SG-1100 pfSense firewall/router. 
 
-Contents:
+_Contents:_
 1.	Objectives
 2.	Topology 1 
 3.	Methodology 1
