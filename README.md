@@ -1,11 +1,15 @@
 # Homelabs
 
-I've done quite a few homelabs, but haven't documented them as extentsively as these. I hope to document everything, including the fails, this is hopefully see growth in network security. 
+I started my security journey in July 2020 by taking the CompTIA Security+ then with homelabs in September 2020. Some of the homelabs have been practicing tools in Kali, spinning up an Windows Server and VMs, setting up and monitoring Splunk, and  analyzing Wireshark logs from devices in my network. All are pretty foundational, but unfortunately, I didn't document anything - forgot how to do a lot of them, forgot what worked vs. what didn't work, and can't prove much to a future employer. I've studied for different certifications on and off since July 2020 like CompTIA CySA+, Cisco CCNA, and Cisco CyberOps, but ultimately, I was tired of reading a book. 
 
-Project 1: *2 Router Homelab - Fail* (1/11/22-1/15/22)
+I took to CTFs and homelabs. In trying to tackle more advanced homelabs and CTFs, I still didn't learn to document in one place or have semi-formal documentation. In doing these CTFs and homelabs, I noticed there was a lack in networking foundations - I went after the Juniper JNCIA-Junos. My company uses Juniper equipment, their training inlcludes free labs, and had a wonderful foundational class. I completed the Juniper JNCIA-Junos in December 2021. 
 
-Project 2: *New Network Setup - Win* (1/21/22, 1/23/22-1/27/22)
+After passing the exam, I wanted to setup a firewall. It was so frustrating that I didn't document it before because _I had_ tried it already, I couldn't remember the different setups I had tried. My goal in starting these homelabs and documentation in 2022 is to learn, see fails and progress, train of thought, and fingers crossed, a security position. 
+ 
+Project 1: *2 Router Homelab - Fail* (1/11/22-1/15/22) - Firewall homelab that failed. 
+ 
+Project 2: *New Network Setup - Win* (1/21/22, 1/23/22-1/27/22) - Firewall homelab that works. 
 
-Project 3: *Unexpected Power Outage - Win* (2/1/22-2/2/22)
+Project 3: *Unexpected Power Outage - Win* (2/1/22-2/2/22) - Troubleshooting a power outage. 
 
-Project 4: *Some Fail to Connect* (2/6/22-2/7/22)
+Project 4: *Some Fail to Connect* (2/6/22-2/7/22) - 
