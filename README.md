@@ -15,3 +15,5 @@ Project 3: *Unexpected Power Outage - Win* (2/1/22-2/2/22) - Troubleshooting a p
 Project 4: *Some Fail to Connect - Temp* (2/6/22-2/7/22) - Some devices connect to wifi others don't.
 
 Project 5: *NSM Failing - Win* (2/9/22) - Network card and power failing on NSM.
+
+Project 6: *NSM Setup*
