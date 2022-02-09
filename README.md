@@ -12,4 +12,6 @@ Project 2: *New Network Setup - Win* (1/21/22, 1/23/22-1/27/22) - Firewall homel
 
 Project 3: *Unexpected Power Outage - Win* (2/1/22-2/2/22) - Troubleshooting a power outage. 
 
-Project 4: *Some Fail to Connect* (2/6/22-2/7/22) - 
+Project 4: *Some Fail to Connect* (2/6/22-2/7/22) - Some devices connect to wifi others don't.
+
+Project 5: *NSM Failing* (2/9/22-) - Network card and power failing on NSM.
