@@ -1,4 +1,4 @@
-Some Fail to Connect (2/6/22-2/7/22)
+# Some Fail to Connect (2/6/22-2/7/22)
 
 **Issue:**
 -	Three devices can connect to the Wifi, but one receives “Cannot connect to network error.”
