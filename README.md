@@ -6,16 +6,16 @@ I took to CTFs and homelabs. In trying to tackle more advanced homelabs and CTFs
 
 After passing the exam, I wanted to setup a firewall. It was so frustrating that I didn't document it before because _I had_ tried it already, I couldn't remember the different setups I had tried. My goal in starting these homelabs and documentation in 2022 is to learn, see fails and progress, train of thought, and fingers crossed, a security position. 
  
-Project 1: *2 Router Homelab - Fail* (1/11/22-1/15/22) - Firewall homelab that failed. 
+**Project 1:** *2 Router Homelab - Fail* (1/11/22-1/15/22) - Firewall homelab that failed. 
  
-Project 2: *New Network Setup - Win* (1/21/22, 1/23/22-1/27/22) - Firewall homelab that works. 
+**Project 2:** *New Network Setup - Win* (1/21/22, 1/23/22-1/27/22) - Firewall homelab that works. 
 
-Project 3: *Unexpected Power Outage - Win* (2/1/22-2/2/22) - Troubleshooting a power outage. 
+**Project 3:** *Unexpected Power Outage - Win* (2/1/22-2/2/22) - Troubleshooting a power outage. 
 
-Project 4: *Some Fail to Connect - Temp* (2/6/22-2/7/22) - Troubleshooting some devices connect to wifi others don't.
+**Project 4:** *Some Fail to Connect - Temp* (2/6/22-2/7/22) - Troubleshooting some devices connect to wifi others don't.
 
-Project 5: *NSM Failing - Win* (2/9/22) - Troubleshooting NIC and battery failing on NSM.
+**Project 5:** *NSM Failing - Win* (2/9/22) - Troubleshooting NIC and battery failing on NSM.
 
-Project 6: *NSM Replaced - Win* (2/12/22) - Swapped out the network controller with a new device.
+**Project 6:** *NSM Replaced - Win* (2/12/22) - Swapped out the network controller with a new device.
 
-Project 7: *NSM Setup*
+**Project 7:** *NSM Setup*
