@@ -16,6 +16,6 @@ Project 4: *Some Fail to Connect - Temp* (2/6/22-2/7/22) - Troubleshooting some 
 
 Project 5: *NSM Failing - Win* (2/9/22) - Troubleshooting NIC and battery failing on NSM.
 
-Project 6: *NSM Replaced*
+Project 6: *NSM Replaced - Win* (2/12/22) - Swapped out the network controller with a new device.
 
 Project 7: *NSM Setup*
