@@ -1,5 +1,8 @@
 # 2 Router Homelab (1/11/22-1/15/22)
-Contents:
+
+I have two routers and I’m going to try to implement a Network Security Monitor (NSM) to monitor all traffic from all networks. Please read the entire thing first. I documented the entire process – that means the failures too. The entire project ended being a fail. I documented so much and want this published to show a growth and thought process behind decisions, and to document things I’ve done when I do future homelabs. I’ve done another homelab similar to this but I didn’t document everything, so I don’t remember the exact layout.  
+
+*Contents:*
 
 1. Objectives
 2. Proposed topology
