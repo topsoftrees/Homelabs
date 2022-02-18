@@ -1,6 +1,8 @@
 # NSM Replaced (2/12/22)
 
-**Contents:**
+This is due to the previous projects which resulted in a NIC or power failure of the unifi controller.
+
+_Contents:_
 1.	Objectives
 2.	Methodology 
 3.	Implementation & Troubleshooting
