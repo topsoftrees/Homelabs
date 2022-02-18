@@ -12,7 +12,7 @@ After passing the exam, I wanted to setup a firewall. It was so frustrating that
 
 **Project 3:** *Unexpected Power Outage - Win* (2/1/22-2/2/22) - Troubleshooting a power outage. 
 
-**Project 4:** *Some Fail to Connect - Temp* (2/6/22-2/7/22) - Troubleshooting some devices connect to wifi others don't.
+**Project 4:** *Some Fail to Connect - Temp* (2/6/22-2/7/22) - Troubleshooting some devices don't connect to wifi.
 
 **Project 5:** *NSM Failing - Win* (2/9/22) - Troubleshooting NIC and battery failing on NSM.
 
