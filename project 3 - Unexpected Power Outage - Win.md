@@ -1,4 +1,4 @@
-Unexpected Power Outage (2/1/22-2/2/22)
+# Unexpected Power Outage (2/1/22-2/2/22)
 
 **Issue:**
 -	There was an unexpected power outage sometime on 2/1/22. Since then, the Wifi has been disconnected. 
