@@ -16,6 +16,6 @@ After passing the exam, I wanted to setup a firewall. It was so frustrating that
 
 **Project 5:** *NSM Failing - Win* (2/9/22) - Troubleshooting NIC and battery failing on NSM.
 
-**Project 6:** *NSM Replaced - Win* (2/12/22) - Swapped out the network controller with a new device.
+**Project 6:** *Controller Replaced - Win* (2/12/22) - Swapped out the network controller with a new device.
 
 **Project 7:** *NSM Setup*
