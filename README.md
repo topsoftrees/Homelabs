@@ -18,6 +18,8 @@ After passing the exam, I wanted to setup a firewall. It was so frustrating that
 
 **Project 6:** *Controller Replaced - Win* (2/12/22) - Swapped out the network controller with a new device.
 
-**Project 7:** *NSM Setup*
+**Project 7:** *Slow Wireless - Win* (3/15/22 - 3/19/22) - Troubleshooing slow wireless speeds. 
 
-**Project 8:** *NSM Automated Deployment*
+**Project 8:** *NSM Setup*
+
+**Project 9:** *Automated Deployment*
