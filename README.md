@@ -20,6 +20,17 @@ After passing the exam, I wanted to setup a firewall. It was so frustrating that
 
 **Project 7:** *Slow Wireless - Win* (3/15/22 - 3/19/22) - Troubleshooing slow wireless speeds. 
 
-**Project 8:** *NSM Setup*
+--Break to study for Juniper JNCIA-Sec-- 
 
-**Project 9:** *Automated Deployment*
+**Project 8.1:** *NSM Setup - Splunk*
+
+**Project 8.2:** *NSM Setup - SSH*
+
+**Project 8.3:** *NSM Setup - Nessus*
+
+**Project 8.4:** *NSM Setup - Snort*
+
+**Project 8.5:** *NSM Setup - Nagios Core*
+
+
+
