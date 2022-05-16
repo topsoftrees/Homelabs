@@ -1,4 +1,7 @@
 # NSM Setup - Splunk
+I've setup Splunk about 5 times with an identical deployment but haven't clearly documented the steps.   
+
+
 Indexer will run on 192.168.50.4. Forwarder will run on 192.168.50.3. 
 
 **Commands to run on the Indexer:**
