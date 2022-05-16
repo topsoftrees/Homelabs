@@ -1,8 +1,8 @@
 # Homelabs
 
-I started my security journey in July 2020 by taking the CompTIA Security+ then with homelabs in September 2020. Some of the homelabs have been practicing tools in Kali, spinning up an Windows Server and VMs, setting up and monitoring Splunk, and  analyzing Wireshark logs from devices in my network. All are pretty foundational, but unfortunately, I didn't document anything - forgot how to do a lot of them, forgot what worked vs. what didn't work, and can't prove much to a future employer. I've studied for different certifications on and off since July 2020 like CompTIA CySA+, Cisco CCNA, and Cisco CyberOps, but ultimately, I was tired of reading a book. 
+I started my security journey in July 2020 by taking the CompTIA Security+ then with homelabs in September 2020. Some of the homelabs have been practicing tools in Kali, spinning up an Windows Server and VMs, setting up and monitoring Splunk, and  analyzing Wireshark logs from devices in my network. All are pretty foundational, but unfortunately, I didn't document anything - forgot how to do a lot of them and forgot what worked vs. what didn't work. I've studied for different certifications on and off since July 2020 such as CompTIA CySA+, Cisco CCNA, and Cisco CyberOps, but ultimately, I was tired of reading a book. 
 
-I took to CTFs and homelabs. In trying to tackle more advanced homelabs and CTFs, I still didn't learn to document in one place or have semi-formal documentation. In doing these CTFs and homelabs, I noticed there was a lack in networking foundations - I went after the Juniper JNCIA-Junos. My company uses Juniper equipment, their training inlcludes free labs, and had a wonderful foundational class. I completed the Juniper JNCIA-Junos in December 2021. 
+I took to CTFs and homelabs. In trying to tackle more advanced homelabs and CTFs, I still didn't learn to document in one place or have semi-formal documentation. In doing these CTFs and homelabs, I noticed there was a lack in networking foundations - I went after the Juniper JNCIA-Junos. My company uses Juniper equipment, their training includes free labs, and had a wonderful foundational class. I completed the Juniper JNCIA-Junos in December 2021. 
 
 After passing the exam, I wanted to setup a firewall. It was so frustrating that I didn't document it before because _I had_ tried it already, I couldn't remember the different setups I had tried. My goal in starting these homelabs and documentation in 2022 is to learn, see fails and progress, train of thought, and fingers crossed, a security position. 
  
@@ -22,7 +22,7 @@ After passing the exam, I wanted to setup a firewall. It was so frustrating that
 
 --Break to study for Juniper JNCIA-Sec-- 
 
-**Project 8.1:** *NSM Setup - Splunk*
+**Project 8.1:** *NSM Setup - Splunk* (5/13/22) - Setting up Splunk Enterprise 
 
 **Project 8.2:** *NSM Setup - SSH*
 
@@ -30,7 +30,7 @@ After passing the exam, I wanted to setup a firewall. It was so frustrating that
 
 **Project 8.4:** *NSM Setup - Snort*
 
-**Project 8.5:** *NSM Setup - Nagios Core*
+**Project 8.5:** *NSM Setup - Nagios Core* (5/15/22-) - Settign up Nagios Core to monitor router/firewall and switch.
 
 
 
