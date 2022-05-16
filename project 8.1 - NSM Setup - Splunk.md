@@ -23,13 +23,14 @@ Indexer will run on 192.168.50.4. Forwarder will run on 192.168.50.3.
 7. cd /opt/splunkforwarder/bin
 8. ./splunk start --answer-yes --accept-license
 9. ./splunk set deploy-poll 192.168.50.4:8089
-10. ./splunk add monitor /var/log/auth.log
-11. ./splunk add monitor /var/log/syslog
-12. ./splunk add monitor /var/log/unifi
+10. ./splunk add forward-server 192.168.50.4:9997 
+11. ./splunk add monitor /var/log/auth.log
+12. ./splunk add monitor /var/log/syslog
+13. ./splunk add monitor /var/log/unifi
 
 **Important Notes:**
 - Actual links have been redacted as they require Splunk logins. 
-- Splunk default ports: Web UI: 8000, Management/splunkd: 8089, Forwarders to Indexer: 9997. Even though we are forwarding to an indexer, we don't use 9997 because we are using a deployment server. 
+- Splunk default ports: Web UI: 8000, Management/splunkd: 8089, Forwarders to Indexer: 9997.
 
 
 
@@ -38,4 +39,6 @@ Indexer will run on 192.168.50.4. Forwarder will run on 192.168.50.3.
 - Start Splunk Enterprise for the first time: https://docs.splunk.com/Documentation/Splunk/8.2.6/Installation/StartSplunkforthefirsttime
 - About deployment server and forwarder management: https://docs.splunk.com/Documentation/Splunk/8.2.6/Updating/Aboutdeploymentserver
 - Configure deployment clients: https://docs.splunk.com/Documentation/Splunk/8.2.6/Updating/Configuredeploymentclients
+- How to Forward Data to Splunk Enterprise:
+https://docs.splunk.com/Documentation/Forwarder/8.2.2/Forwarder/HowtoforwarddatatoSplunkEnterprise
 - Monitor Splunk Enterprise files and directories with the CLI: https://docs.splunk.com/Documentation/Splunk/latest/Data/MonitorfilesanddirectoriesusingtheCLI
