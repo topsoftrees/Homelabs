@@ -22,7 +22,7 @@ After passing the exam, I wanted to setup a firewall. It was so frustrating that
 
 --Break to study for Juniper JNCIA-Sec-- 
 
-**Project 8.1:** *NSM Setup - Splunk* (5/13/22) - Setting up Splunk Enterprise 
+**Project 8.1:** *NSM Setup - Splunk* (5/29/22) - Setting up Splunk Enterprise 
 
 **Project 8.2:** *NSM Setup - SSH*
 
