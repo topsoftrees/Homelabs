@@ -34,7 +34,7 @@ Indexer will run on 192.168.50.4. Forwarder will run on 192.168.50.3.
 
 **Commands to run on the Indexer:** 
 1. cd /opt/splunk/bin
-2. ./splunk enable app SplunkForwarder -auth <username>:<password>
+2. ./splunk enable app SplunkForwarder -auth username:password
 3. ./splunk restart 
 
   
@@ -63,4 +63,4 @@ Indexer will run on 192.168.50.4. Forwarder will run on 192.168.50.3.
 - Monitor Splunk Enterprise files and directories with the CLI: https://docs.splunk.com/Documentation/Splunk/latest/Data/MonitorfilesanddirectoriesusingtheCLI
 - Enable forwarding on a Splunk Enterprise instance -https://docs.splunk.com/Documentation/Splunk/8.2.6/Forwarding/EnableforwardingonaSplunkEnterpriseinstance
 - Deploy a  heavy forwarder - https://docs.splunk.com/Documentation/Splunk/8.2.6/Forwarding/Deployaheavyforwarder
-Configure Deployment Clients - https://docs.splunk.com/Documentation/Splunk/8.2.6/Updating/Configuredeploymentclients 
+- Configure Deployment Clients - https://docs.splunk.com/Documentation/Splunk/8.2.6/Updating/Configuredeploymentclients 
