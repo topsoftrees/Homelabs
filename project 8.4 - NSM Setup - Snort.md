@@ -1,5 +1,7 @@
 # Snort
 
+I'll be using an IDS in promiscuous mode to monitor internal and external network to understand logs and detect attacks.
+
 1. sudo apt -y install snort
 2. Select an interface - mine will be enp1s0 - ifconfig the server to find the interface
 3. Enter the local network you would like to monitor - 192.168.0.0/16 
