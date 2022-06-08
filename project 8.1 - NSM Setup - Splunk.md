@@ -2,52 +2,92 @@
 I've setup Splunk about 5 times with an identical deployment but haven't clearly documented the steps.   
 
 
-Indexer will run on 192.168.50.4. Forwarder will run on 192.168.50.3. 
+- Indexer will run on 192.168.50.4. Forwarder will run on 192.168.50.3. 
+
+- Splunk shouldn't be running as root so we'll be escalating admin each time. 
 
 **Commands to run on the Indexer:**
-1. sudo -i  
-2. apt update && apt -y upgrade 
-3. apt install wget
-4. wget -o splunkversion.tgz "splunk.com/splunkversion.tgz" 
-5. mv "splunkversion.tgz" "splunk.tgz"
-6. tar xvzf splunk.tgz -C /opt
-7. cd /opt/splunk/bin
-8. ./splunk start --answer-yes --accept-license
-9. http://localhost:8000
+1. sudo apt update && apt -y upgrade 
+2. sudo apt install wget
+3. wget -o splunkversion.tgz "splunk.com/splunkversion.tgz" 
+4. mv "splunkversion.tgz" "splunk.tgz"
+5. sudo tar xvzf splunk.tgz -C /opt
+6. cd /opt/splunk/bin
+7. sudo ./splunk start --answer-yes --accept-license
+8. http://localhost:8000
+9. Login to Splunk Web > Settings > Forwarding and Receiving
+10. Configure Forwarding > Add new > receiving hostname/IP:9997 (192.168.50.4:9997) 
+11. Configure Receiving > Add new > receiving port (9997) 
+12. Forwarding Defaults > Yes to store a local copy of the indexed data on the forwarder
+13. sudo ./splunk enable app SplunkForwarder -auth username:password
+14. sudo ./splunk restart
+15. sudo ./splunk add monitor /var/log/snort/alert **# Snort running in promiscuous mode on the monitor**
+16. sudo -i **# the local directory in the next line needs root privileges**
+17. cd /opt/splunk/etc/apps/search/local **# the local directory will show up when you start forwarding a file**
+18. nano inputs.conf
+19. Add the following to /opt/splunk/etc/apps/search/local/inputs.conf:
+      > [splunktcp://9997]
+      > 
+      > connection_host = 192.168.50.4
+      > 
+      > [monitor:///var/log/snort/alert]
+      > 
+      > disabled=false
+      > 
+      > index=main
+      > 
+      > sourcetype = snort_alert_full
+      > 
+      > source = snort
+19. cd /opt/splunk/bin
+20. sudo ./splunk restart
+
+    
+    
+**Commands to run on Forwarder:** 
+1. sudo apt update && apt -y upgrade 
+2. sudo apt install wget
+3. wget -o splunkforwarderverision.tgz "splunk.com/splunkforwarderversion.tgz"
+4. mv "splunkforwarderverision.tgz" "splunkforwarder.tgz"
+5. sudo tar xvzf splunkforwarder.tgz -C /opt
+6. cd /opt/splunkforwarder/bin
+7. sudo ./splunk start --answer-yes --accept-license
+8. Enter Splunk Credentials
+9. sudo ./splunk add forward-server 192.168.50.4:9997
+10. sudo ./splunk add monitor /var/log/syslog
+11. sudo ./splunk add monitor /var/log/auth.log
+12. sudo -i **# the local directory in the next line needs root privileges**
+13. cd /opt/splunk/etc/apps/search/local **# the local directory will show up when you start forwarding a file**
+14. nano inputs.conf 
+15. Add the following to /opt/splunk/etc/apps/search/local/inputs.conf:
+    > [splunktcp://9997]
+    > 
+    > connection_host = 192.168.50.4
+    > 
+    > [monitor:///var/log/snort/syslog]
+    > 
+    > disabled=false
+    > 
+    > index=main
+    > 
+    > sourcetype = controller_syslog
+    > 
+    > source = syslog
+    > 
+    > [monitor:///var/log/snort/auth.log]
+    > 
+    > disabled=false
+    > 
+    > index=main
+    > 
+    > sourcetype = controller_auth
+    > 
+    > source = auth
+16. cd /opt/splunk/bin
+17. sudo ./splunk restart
 
 
-**Commands to run on Forwarder:**
-1. sudo -i 
-2. apt update && apt -y upgrade 
-3. apt install wget
-4. wget -o splunkforwarderverision.tgz "splunk.com/splunkforwarderversion.tgz"
-5. mv "splunkforwarderverision.tgz" "splunkforwarder.tgz"
-6. tar xvzf splunkforwarder.tgz -C /opt
-7. cd /opt/splunkforwarder/bin
-8. ./splunk start --answer-yes --accept-license
-10. Login to Splunk web, select Settings > Forwarding and receiving
-11. Click Add new > Configure Forwarding
-12. Enter the receiving hostname/IP:9997 (192.168.50.4:9997)
-13. Click Save
-14. Select Forwarding defaults > Yes to store a local copy of the indexed data on the forwarder
 
-
-**Commands to run on the Indexer:** 
-1. cd /opt/splunk/bin
-2. ./splunk enable app SplunkForwarder -auth username:password
-3. ./splunk restart 
-
-  
-**Commands to run on Forwarder:**
-1. cd /opt/splunkforwarder/bin
-2. ./splunk add forward-server 192.168.50.4:9997
-3. ./splunk set deploy-poll 192.168.50.4:8089
-4. ./splunk restart 
-12. ./splunk add monitor /var/log/auth.log
-13. ./splunk add monitor /var/log/syslog
-14. ./splunk add monitor /var/log/unifi
-
-  
 **Important Notes:**
 - Actual links have been redacted as they require Splunk logins. 
 - Splunk default ports: Web UI: 8000, Management/splunkd: 8089, Forwarders to Indexer: 9997.
