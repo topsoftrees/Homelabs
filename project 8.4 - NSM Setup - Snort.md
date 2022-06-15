@@ -20,6 +20,10 @@ I'll be using an IDS in promiscuous mode to monitor internal and external networ
 12. sudo ip link set enp1s0 promisc on **# enable promiscuous mode on NIC**
 13. sudo snort -q -l /var/log/snort -i enp1s0 -A full -c /etc/snort/snort.conf
 
+**Make your own rules:**
+1. cd /etc/snort/rules
+2. sudo nano local.rules
+3. Add rules here
 
 **Helpful Commands:**
 - snort —version # confirm snort is installed
