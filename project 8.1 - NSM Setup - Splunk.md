@@ -54,12 +54,15 @@ I've setup Splunk about 5 times with an identical deployment but haven't clearly
 7. sudo ./splunk start --answer-yes --accept-license
 8. Enter Splunk Credentials
 9. sudo ./splunk add forward-server 192.168.50.4:9997
-10. sudo ./splunk add monitor /var/log/syslog
-11. sudo ./splunk add monitor /var/log/auth.log
-12. sudo -i **# the local directory in the next line needs root privileges**
-13. cd /opt/splunk/etc/apps/search/local **# the local directory will show up when you start forwarding a file**
-14. nano inputs.conf 
-15. Add the following to /opt/splunk/etc/apps/search/local/inputs.conf:
+10. sudo ./splunk restart
+11. sudo ./splunk deploy-poll 192.168.50.4:8089
+12. sudo ./splunk restart
+13. sudo ./splunk add monitor /var/log/syslog
+14. sudo ./splunk add monitor /var/log/auth.log
+15. sudo -i **# the local directory in the next line needs root privileges**
+16. cd /opt/splunk/etc/apps/search/local **# the local directory will show up when you start forwarding a file**
+17. nano inputs.conf 
+18. Add the following to /opt/splunk/etc/apps/search/local/inputs.conf:
     > [splunktcp://9997]
     > 
     > connection_host = 192.168.50.4
@@ -83,8 +86,8 @@ I've setup Splunk about 5 times with an identical deployment but haven't clearly
     > sourcetype = controller_auth
     > 
     > source = auth
-16. cd /opt/splunk/bin
-17. sudo ./splunk restart
+19. cd /opt/splunk/bin
+20. sudo ./splunk restart
 
 
 
