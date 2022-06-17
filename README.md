@@ -28,7 +28,7 @@ After passing the exam, I wanted to setup a firewall. It was so frustrating that
 
 **Project 8.3:** *NSM Setup - Nessus*
 
-**Project 8.4:** *NSM Setup - Snort* (6/7/22, 6/15/22-) - Setting up Snort and creating rules
+**Project 8.4:** *NSM Setup - Snort* (6/7/22, 6/15/22-) - Setting up Snort and creating rules to understand attacks and IOCs. 
 
 **Project 8.5:** *NSM Setup - Nagios Core* (5/15/22-) - Setting up Nagios Core to monitor router/firewall and switch.
 
