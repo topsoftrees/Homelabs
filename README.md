@@ -22,13 +22,13 @@ After passing the exam, I wanted to setup a firewall. It was so frustrating that
 
 --Break to study for Juniper JNCIA-Sec-- 
 
-**Project 8.1:** *NSM Setup - Splunk* (5/29/22) - Setting up Splunk Enterprise 
+**Project 8.1:** *NSM Setup - Splunk* (5/29/22, 6/15/22) - Setting up Splunk Enterprise to monitor auth.log, Unifi, Snort, and syslogs.
 
 **Project 8.2:** *NSM Setup - SSH*
 
 **Project 8.3:** *NSM Setup - Nessus*
 
-**Project 8.4:** *NSM Setup - Snort*
+**Project 8.4:** *NSM Setup - Snort* (6/7/22, 6/15/22-) - Setting up Snort and creating rules
 
 **Project 8.5:** *NSM Setup - Nagios Core* (5/15/22-) - Setting up Nagios Core to monitor router/firewall and switch.
 
