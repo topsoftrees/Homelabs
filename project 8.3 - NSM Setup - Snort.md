@@ -36,3 +36,7 @@ I'll be using an IDS in promiscuous mode to monitor internal and external networ
 
 
 **Helpful Documentation:** 
+
+- Rules: https://snort.org/downloads/#rule-downloads
+- Snort Documentation: https://snort.org/documents
+- man snort
