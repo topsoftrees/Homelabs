@@ -18,19 +18,17 @@ After passing the exam, I wanted to setup a firewall. It was so frustrating that
 
 **Project 6:** *Controller Replaced - Win* (2/12/22) - Swapped out the network controller with a new device.
 
-**Project 7:** *Slow Wireless - Win* (3/15/22 - 3/19/22) - Troubleshooing slow wireless speeds. 
+**Project 7:** *Slow Wireless - Win* (3/15/22 - 3/19/22) - Troubleshooting slow wireless speeds. 
 
 --Break to study for Juniper JNCIA-Sec-- 
 
-**Project 8.1:** *NSM Setup - Splunk* (5/29/22, 6/15/22) - Setting up Splunk Enterprise to monitor auth.log, Unifi, Snort, and syslogs.
+**Project 8.1:** *NSM Setup - Splunk* (5/29/22, 6/15/22) - Setting up Splunk Enterprise to monitor Snort, pfSense, and auth.log.
 
-**Project 8.2:** *NSM Setup - SSH*
+**Project 8.2:** *NSM Setup - SSH* 
 
-**Project 8.3:** *NSM Setup - Nessus*
+**Project 8.3:** *NSM Setup - Snort* (6/7/22, 6/15/22) - Setting up Snort and creating rules to understand attacks and IOCs. 
 
-**Project 8.4:** *NSM Setup - Snort* (6/7/22, 6/15/22-) - Setting up Snort and creating rules to understand attacks and IOCs. 
-
-**Project 8.5:** *NSM Setup - Nagios Core* (5/15/22-) - Setting up Nagios Core to monitor router/firewall and switch.
+**Project 8.4:** *NSM Setup - Nagios Core* (5/15/22-) - Setting up Nagios Core to monitor router/firewall and switch.
 
 
 
