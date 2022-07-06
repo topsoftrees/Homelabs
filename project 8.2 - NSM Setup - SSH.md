@@ -1,5 +1,7 @@
 # SSH Setup
 
+SSH is setup to only allow access from a select number of IP addresses within the same subnet. 
+
 **On the server:**
 1. sudo apt install openssh-server
 2. mkdir ~/.ssh/
