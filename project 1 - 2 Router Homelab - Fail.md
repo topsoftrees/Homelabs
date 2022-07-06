@@ -2,7 +2,7 @@
 
 I have two routers and I’m going to try to implement a Network Security Monitor (NSM) to monitor all traffic from all networks. Please read the entire thing first. I documented the entire process – that means the failures too. The entire project ended being a fail. I documented so much and want this published to show a growth and thought process behind decisions, and to document things I’ve done when I do future homelabs. I’ve done another homelab similar to this but I didn’t document everything, so I don’t remember the exact layout.  
 
-*Contents:*
+**Contents:**
 
 1. Objectives
 2. Proposed topology
@@ -27,18 +27,18 @@ I have two routers and I’m going to try to implement a Network Security Monito
 
 **Proposed Topology:**
 
-Initial topology: 
+_Initial topology:_ 
 
 <img width="767" alt="Screen Shot 2022-01-17 at 10 29 26 AM" src="https://user-images.githubusercontent.com/74877876/149797726-d9eac54a-4660-48dd-a960-38c2605bc853.png">
 
 
-R1 (ASUS):
+_R1 (ASUS):_
 -	Home devices will wirelessly connect 
 -	DHCP will be enabled with range 192.168.50.3-192.168.50.254
 -	Modem will connect to WAN port
 -	R2 will connect to port 1
 
-R2 (TP-Link):
+_R2 (TP-Link):_
 -	NSM will connect to port 2
 -	DHCP will be disabled and with a static IP of 192.168.50.2
 -	R1 will connect to port 1
@@ -124,7 +124,7 @@ After going through the first phase of considerations, the homelab is going to b
 <img width="633" alt="Screen Shot 2022-01-17 at 10 37 00 AM" src="https://user-images.githubusercontent.com/74877876/149798921-6853cf7d-ba1c-4cbb-84cc-2a4490a36238.png">
 
 
-R1 (ASUS):
+_R1 (ASUS):_
 -	NSM will connect to port 2
 -	Home devices will wirelessly connect to external network
 -	DHCP will be enabled with range 192.168.50.3-192.168.50.254
@@ -132,7 +132,7 @@ R1 (ASUS):
 -	R2 will connect to port 1
 -	Port mirror 1 to port 2
 
-R2 (TP-Link):
+_R2 (TP-Link):_
 -	Guest devices will connect to external network
 -	DHCP will be disabled and with a static IP of 192.168.50.2
 -	R1 will connect to port 1
@@ -151,19 +151,19 @@ https://cs.wmich.edu/~rhardin/cs4540/fpSense.pdf, https://www.youtube.com/watch?
 
 **Changed Plan 2:**
 
-Changing the plan to the following: 
+_Changing the plan to the following:_ 
 
 <img width="672" alt="Screen Shot 2022-01-17 at 10 38 43 AM" src="https://user-images.githubusercontent.com/74877876/149799249-7166ab4e-0ddf-4436-ae04-ccff3bc0b47b.png">
 
 
 Assuming one of the routers has a USB device, I can boot the router into pfSense. 
 
-Firewall/R1:
+_Firewall/R1:_
 -	Running pfSense 
 -	Modem will connect to WAN
 -	R2 will connect to port 1
 
-R2:
+_R2:_
 -	Firewall/R1 will connect to WAN/LAN
 -	NSM will connect to port 1/2
 -	Setup with internal and external networks
@@ -313,13 +313,13 @@ Part of the issue with this project is not finding test cases and parameters bef
 
 
     Access to ASUS? Yes
-
+     
     Access to TP-Link? Yes
-
+   
     Access to ASUS, TP-Link, and Internet? No
-  
+     
     Does Wireshark collect data from NSM and phone? Yes
-  
+    
     =FAIL
 
 
