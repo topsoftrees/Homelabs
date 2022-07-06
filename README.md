@@ -24,7 +24,7 @@ After passing the exam, I wanted to setup a firewall. It was so frustrating that
 
 **Project 8.1:** *NSM Setup - Splunk* (5/29/22, 6/15/22) - Setting up Splunk Enterprise to monitor Snort, pfSense, and auth.log.
 
-**Project 8.2:** *NSM Setup - SSH* 
+**Project 8.2:** *NSM Setup - SSH* (6/4/22) - Setting up SSH for remote access.
 
 **Project 8.3:** *NSM Setup - Snort* (6/7/22, 6/15/22) - Setting up Snort and creating rules to understand attacks and IOCs. 
 
