@@ -30,33 +30,33 @@ This was the initial plan before anything was done:
 
 - When trying to run the controller on the new machine, the site could not be pulled up. Running sudo service unifi start and sudo service unifi restart resulted in the following error: 
 
-Active: failed (Result: start-limit-hit)
-
-    unifi systemd[1]: unifi.service: Scheduled restart job, restart counter is at 2.
-
-    unifi systemd[1]: Stopped unifi.
-
-    unifi systemd[1]: Starting unifi...
-
-    unifi unifi.init[6393]:  * Starting Ubiquiti UniFi Controller unifi
-
-    unifi unifi.init[6522]: Cannot locate Java Home
+    > Active: failed (Result: start-limit-hit)
+    > 
+    > unifi systemd[1]: unifi.service: Scheduled restart job, restart counter is at 2.
+    > 
+    > unifi systemd[1]: Stopped unifi.
+    > 
+    > unifi systemd[1]: Starting unifi...
+    > 
+    > unifi unifi.init[6393]:  * Starting Ubiquiti UniFi Controller unifi
+    > 
+    > unifi unifi.init[6522]: Cannot locate Java Home
 
 which is clearly a Java installation error. 
 
 - Reinstalled Java, received the following error: 
 
-Active: failed (Result: start-limit-hit)
-
-    unifi systemd[1]: unifi.service: Scheduled restart job, restart counter is at 2.
-  
-    unifi systemd[1]: Stopped unifi.
-
-    unifi systemd[1]: Starting unifi...
-
-    unifi unifi.init[6393]:  * Starting Ubiquiti UniFi Controller unifi
-
-    unifi unifi.init[6522]: Cannot locate monogod
+    > Active: failed (Result: start-limit-hit)
+    > 
+    > unifi systemd[1]: unifi.service: Scheduled restart job, restart counter is at 2.
+    > 
+    > unifi systemd[1]: Stopped unifi.
+    > 
+    > unifi systemd[1]: Starting unifi...
+    > 
+    > unifi unifi.init[6393]:  * Starting Ubiquiti UniFi Controller unifi
+    > 
+    > unifi unifi.init[6522]: Cannot locate monogod
 
 - Researched the error message which pretty much came to a full reinstall from a Ubiquity employee’s GitHub, Glenn R. In researching for the previous projects, Glenn R solved a lot of the issues and provided insight to all pages I’ve looked at. 
 
