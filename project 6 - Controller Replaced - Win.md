@@ -2,7 +2,7 @@
 
 This is due to the previous projects which resulted in a NIC or power failure of the unifi controller. Given the RAM and GHz of the new device, the controller and NSM will be divided between two devices. 
 
-_Contents:_
+**Contents:**
 1.	Objectives
 2.	Methodology 
 3.	Implementation & Troubleshooting
@@ -32,15 +32,15 @@ This was the initial plan before anything was done:
 
 Active: failed (Result: start-limit-hit)
 
-unifi systemd[1]: unifi.service: Scheduled restart job, restart counter is at 2.
+    unifi systemd[1]: unifi.service: Scheduled restart job, restart counter is at 2.
 
-unifi systemd[1]: Stopped unifi.
+    unifi systemd[1]: Stopped unifi.
 
-unifi systemd[1]: Starting unifi...
+    unifi systemd[1]: Starting unifi...
 
-unifi unifi.init[6393]:  * Starting Ubiquiti UniFi Controller unifi
+    unifi unifi.init[6393]:  * Starting Ubiquiti UniFi Controller unifi
 
-unifi unifi.init[6522]: Cannot locate Java Home
+    unifi unifi.init[6522]: Cannot locate Java Home
 
 which is clearly a Java installation error. 
 
@@ -48,15 +48,15 @@ which is clearly a Java installation error.
 
 Active: failed (Result: start-limit-hit)
 
-unifi systemd[1]: unifi.service: Scheduled restart job, restart counter is at 2.
+    unifi systemd[1]: unifi.service: Scheduled restart job, restart counter is at 2.
+  
+    unifi systemd[1]: Stopped unifi.
 
-unifi systemd[1]: Stopped unifi.
+    unifi systemd[1]: Starting unifi...
 
-unifi systemd[1]: Starting unifi...
+    unifi unifi.init[6393]:  * Starting Ubiquiti UniFi Controller unifi
 
-unifi unifi.init[6393]:  * Starting Ubiquiti UniFi Controller unifi
-
-unifi unifi.init[6522]: Cannot locate monogod
+    unifi unifi.init[6522]: Cannot locate monogod
 
 - Researched the error message which pretty much came to a full reinstall from a Ubiquity employee’s GitHub, Glenn R. In researching for the previous projects, Glenn R solved a lot of the issues and provided insight to all pages I’ve looked at. 
 
