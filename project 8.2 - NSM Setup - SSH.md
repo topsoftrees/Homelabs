@@ -1,6 +1,6 @@
 # SSH Setup
 
-_On the server:_
+**On the server:**
 1. sudo apt install openssh-server
 2. mkdir ~/.ssh/
 3. touch authorized_keys
@@ -8,7 +8,7 @@ _On the server:_
 5. ssh-keygen -t ~/.ssh -t rsa -b 4096
 6. ssh-copy-id -i ~/.ssh/id_rsa.pub [client username]@[client IP]
 
-_On a remote machine:_
+**On a remote machine:**
 1. ssh [server IP]@[server IP]
 
 **Helpful Documentation:**
