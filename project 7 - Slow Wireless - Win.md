@@ -2,7 +2,7 @@
 
 Since implementing the new controller, the wireless has been slow. 
 
-_Contents:_
+**Contents:**
 1.	Issue
 2.	Background Info
 3.	Troubleshooting – Channels
@@ -12,7 +12,6 @@ _Contents:_
 7.	Lessons Learned
 
 **Issue:**
-
 - Wireless speeds have been running slow since the old NSM’s battery went dead (project 5). The speeds have been ~150 Mbps. 
 
 
@@ -35,21 +34,14 @@ There’s one device that’s been having issues connecting to the 192.168.100.1
 Since the AP is connected to a switch, a VLAN should be used so the AP cannot access the internal network. Ideally, the internal network would be 192.168.50.1/24 and the external is 192.168.100.1/24. 
 
 _In pfSense:_ 
-1.	Interfaces > Assignments > VLANs > add VLAN 100 (wireless) 
-
-a.	We should add the VLAN to LAN since the switch and AP are connected through the LAN port of SG-1100. If the AP was connected through the OPT port, we should add the VLAN to OPT interface.
-
-2.	Interfaces > Assignments > VLANs > VLAN 100 > add
-
-3.	Interfaces > Assignments > VLANs > VLAN 100 > enable, wireless, 192.168.100.1/24
-
-4.	Services > DHCP Server > VLAN 100 > enable, 192.168.100.10-192.168.100.254
-
-5.	Firewall > Rules > VLAN 100 > add, pass any protocol (this is temporary)
-
-6.	Interfaces > Switch > VLANs > edit, VLAN tag 100, guest network, 0 tagged and 2 tagged. 
-
-a.	In Interfaces > Switch > Ports, LAN is associated with 0 and 2. Going back to 1a, we need to assign the VLAN to the interface and tag 0 and 2. 
+1. Interfaces > Assignments > VLANs > add VLAN 100 (wireless) 
+2. We should add the VLAN to LAN since the switch and AP are connected through the LAN port of SG-1100. If the AP was connected through the OPT port, we should add the VLAN to OPT interface.
+3. Interfaces > Assignments > VLANs > VLAN 100 > add
+4. Interfaces > Assignments > VLANs > VLAN 100 > enable, wireless, 192.168.100.1/24
+5. Services > DHCP Server > VLAN 100 > enable, 192.168.100.10-192.168.100.254
+6. Firewall > Rules > VLAN 100 > add, pass any protocol (this is temporary)
+7. Interfaces > Switch > VLANs > edit, VLAN tag 100, guest network, 0 tagged and 2 tagged. 
+8. In Interfaces > Switch > Ports, LAN is associated with 0 and 2. Going back to 1a, we need to assign the VLAN to the interface and tag 0 and 2. 
 
 _In TP-Link Switch:_
 1.	Add a VLAN 100, tag port 1 and 8. 
@@ -80,14 +72,9 @@ The below links assisted with setting up a VLAN:
 After creating the other network, the internet was still running slow. In Unifi research, there’s supposed to be a considerable speed difference between the internal and external network. I’ve been able to verify this with the NSM speed and the speed of our personal devices. I moved the 150 VLAN to an internal network then went to pfSense to disable internal access using firewall rules. 
 
 _In pfSense:_
-1.	Firewall > Rules > VLAN 150 
-
-a.	Reject any protocol destination LAN
-
-b.	Pass any protocol
-The above two rules were not taking affect, so I instead implemented the below rule. 
-
-c.	Pass any protocol that is NOT destination LAN
+1.	Firewall > Rules > VLAN 150 > Reject any protocol destination LAN and pass any protocol
+- The above two rules were not taking affect, so I instead implemented the below rule. 
+1.	Firewall > Rules > VLAN 150 > Pass any protocol that is NOT destination LAN
 - Pinged 192.168.150.1 from 192.168.50.3, successfully reached the remote host. 
 - Pinged 192.168.50.1, 192.168.50.2, 192.168.50.3 from a host on 192.168.150.1/24 which was unreachable. 
 
@@ -96,30 +83,23 @@ c.	Pass any protocol that is NOT destination LAN
 
 Created the VLAN in pfSense, tagged port 1 and 8, and created a VLAN network in Unifi:
 
-_In pfSense:_
-1.	Interfaces > Assignments > VLANs > add VLAN 150 (wireless) 
-
-a. We should add the VLAN to LAN since the switch and AP are connected through the LAN port of SG-1100. If the AP was connected through the OPT port, we should add the VLAN to OPT interface.
-
-2.	Interfaces > Assignments > VLANs > VLAN 150 > add
-
-3.	Interfaces > Assignments > VLANs > VLAN 150 > enable, wireless, 192.168.150.1/24
-
-4.	Services > DHCP Server > VLAN 150 > enable, 192.168.150.10-192.168.150.254
-
-5.	Interfaces > Switch > VLANs > edit, VLAN tag 150, guest network, 0 tagged and 2 tagged. 
+_In pfSense:_ 
+1. Interfaces > Assignments > VLANs > add VLAN 150 (wireless) 
+2. We should add the VLAN to LAN since the switch and AP are connected through the LAN port of SG-1100. If the AP was connected through the OPT port, we should add the VLAN to OPT interface.
+3. Interfaces > Assignments > VLANs > VLAN 150 > add
+4. Interfaces > Assignments > VLANs > VLAN 150 > enable, wireless, 192.168.150.1/24
+5. Services > DHCP Server > VLAN 150 > enable, 192.168.150.10-192.168.150.254
+6. Interfaces > Switch > VLANs > edit, VLAN tag 150, guest network, 0 tagged and 2 tagged. 
 
 _In TP-Link Switch:_
-1.	Add a VLAN 150, tag port 1 and 8. 
+1. Add a VLAN 150, tag port 1 and 8. 
 
 _In Unifi:_
-1.	Settings > Network > Add a network > Test Network, VLAN 150, turn off Auto Scale Network, Gateway IP/Subnet: 192.168.150.1/24
-
-2.	Settings > Wifi > Add a Guest Network > Van 150, VAN Network, Wifi Type: Guest, Security: WPA-3
+1. Settings > Network > Add a network > Test Network, VLAN 150, turn off Auto Scale Network, Gateway IP/Subnet: 192.168.150.1/24
+2. Settings > Wifi > Add a Guest Network > Van 150, VAN Network, Wifi Type: Guest, Security: WPA-3
 
 _In pfSense:_
 1.	Firewall > Rules > VLAN 150 > Pass any protocol that is NOT destination LAN
-
 
 **Lessons Learned:**
 
