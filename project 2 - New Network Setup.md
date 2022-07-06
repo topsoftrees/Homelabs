@@ -2,7 +2,7 @@
 
 This is basically a continuation of the previous lab. The previous lab resulted in both routers not having the capability for a firewall and to connect to each other. A different, more advanced piece of equipment is needed – I purchased the Netgate SG-1100 pfSense firewall/router.
 
-*Contents:*
+**Contents:**
 
 1. Objectives
 2. Proposed Topology
@@ -27,25 +27,25 @@ This is basically a continuation of the previous lab. The previous lab resulted 
 
 **Proposed Topology:**
 
-Equipment:
+_Equipment:_
 -	Netgate SG-1100 pfSense Firewall/Router
 -	ASUS Router (consumer)
 -	TP-Link Router (consumer)
 -	NSM
 
-Initial topology: 
+_Initial topology:_
 
 <img width="765" alt="Screen Shot 2022-01-28 at 10 45 38 AM" src="https://user-images.githubusercontent.com/74877876/151577362-14bb66d1-755a-4ada-89ad-d873240d244b.png">
 
 
-Firewall (SG-1100):
+_Firewall (SG-1100):_
 -	Modem will connect to WAN port with an ISP assigned IP
 -	pfSense: 192.168.50.1
 -	NSM: 192.168.50.2 (LAN port)
 -	Hardwire NSM - monitor all wired and wireless connections
 -	R1: 192.168.100.3 (OPT port)
 
-Router (ASUS):
+_Router (ASUS):_
 -	FW: 192.168.100.3 (WAN port)
 -	Wired connections: 192.168.100.0/24 (LAN ports)
 -	Wireless connections: 192.168.150.0/24
@@ -56,7 +56,7 @@ It might look confusing but there will be 3 networks created - 192.168.50.0/24 f
 
 Creating two more networks will divide the network into 3. Here is the process:
 
-Configure FW:
+_Configure Firewall:_
 1.	Configure DHCP on WAN and enable the interface
     a.	FW: Interfaces > Assignments > WAN  
     b.	Enable > Enable DHCP 
@@ -73,7 +73,7 @@ Configure FW:
 6.	Set router to 192.168.100.1 static
     a.	Terminal > “sudo dhclient -r” to release the current IP > “sudo dhclient” to pull the static IP
 
-Configure R1:
+_Configure R1:_
 1.	Connect FW to WAN
 2.	Set a static WAN IP of 192.168.100.1
     a. 	R1: Network > WAN > Static > 192.168.100.1
@@ -82,7 +82,7 @@ Configure R1:
 4.	Wired connect to LAN
 5.	Wirelessly connect. 
 
-Test cases:
+_Test cases:_
 1.	OPT-WAN, wired
 2.	OPT-WAN, wireless 
 3.	OPT-LAN, wired
@@ -93,17 +93,19 @@ Test cases:
 
 After trying the implement the plan, these were the results:
 
-Created the FW on 192.168.50.0/24 on LAN and 192.168.100.0/24 on OPT: 
--	Connecting FW to WAN, created a public IP and wasn’t routable. 
--	Connecting FW to LAN, created a 192.168.50.0/24 address and wasn’t routable. R1 wasn’t picking up on the separate network. pfSense DHCP Leases was pulling the hardwire connection of the NSM with a 192.168.50.2 address which I turned into a static IP.
-Turned R1 into AP mode only:
--	Connected FW to WAN, created a public IP and wasn’t routable. 
--	Connected FW to LAN, no IP.
-Configured R1 to be setup like an AP, but in router mode:
--	Connected FW to WAN, created a public IP and wasn’t routable. 
--	Connected FW to LAN, no IP.
+_Created the FW on 192.168.50.0/24 on LAN and 192.168.100.0/24 on OPT:_ 
+- Connecting FW to WAN, created a public IP and wasn’t routable. 
+- Connecting FW to LAN, created a 192.168.50.0/24 address and wasn’t routable. R1 wasn’t picking up on the separate network. pfSense DHCP Leases was pulling the hardwire connection of the NSM with a 192.168.50.2 address which I turned into a static IP.
 
-Test cases:
+_Turned R1 into AP mode only:_
+- Connected FW to WAN, created a public IP and wasn’t routable. 
+- Connected FW to LAN, no IP.
+
+_Configured R1 to be setup like an AP, but in router mode:_
+- Connected FW to WAN, created a public IP and wasn’t routable. 
+- Connected FW to LAN, no IP.
+
+_Test cases:_
 1.	OPT-WAN, wired – fail 
 2.	OPT-WAN, wireless – fail 
 3.	OPT-LAN, wired – fail  
@@ -111,12 +113,12 @@ Test cases:
 
 Seeing a failed plan, I turned to YouTube. Pretty much the only thing I could find was connecting a switch to a router then having a dedicated AP and hardwiring devices to the switch. I was wanting to avoid creating a wireless network on the firewall, but it turns out, this type of firewall, doesn’t allow creating a wireless network without other equipment. 
 
-Results of this: 
+_Results of this:_
 -	The FW will not, by default, create other networks on their physical interfaces (LAN being .50 and OPT being .100). This may need some VLAN configuration, but the routers aren’t capable of that. 
 -	Connecting R1 to FW as a router or an AP in OPT, will not create a network no matter the connection.
 -	Cannot create wireless network on the SG-1100 and both routers aren’t creating a functioning network. These routers are also not VLAN capable. 
 
-Lessons Learned: 
+_Lessons Learned:_ 
 -	Writing out the specified ports to connect to and the associated IPs. This helps with clearly seeing everything and not having to memorize the addresses. I’m learning how to create a network in this 
 -	Just because devices can do certain things, it depends on the model. One of the conclusions from the previous lab was both routers couldn’t boot into pfSense and wouldn’t create two networks. With this lab, a similar situation happened. I knew my router could be turned into an AP and from the previous lab, APs could turn into guest networks. After trying to implement both using the ASUS and TP-Link routers, nothing was routable and I’m concluding it’s not possible on these routers. 
 -	Implement the plan and write our lessons learned from the results. Clearly stating what I did, and its outcomes helped immensely. Turning these into lessons learned will help for later homelabs in understanding networking. 
@@ -124,7 +126,7 @@ Lessons Learned:
 
 **Topology 2:**
 
-Equipment:
+_Equipment:_
 -	Netgate SG-1100 pfSense Firewall/Router
 -	TP-Link 8-port Switch 
 -	Unifi AP
@@ -135,7 +137,7 @@ After going through the first phase of considerations, the homelab is going to b
 
 <img width="655" alt="Screen Shot 2022-01-28 at 10 46 10 AM" src="https://user-images.githubusercontent.com/74877876/151577493-64b94072-f861-41f4-bf24-5a7bbe892a8d.png">
 
-Firewall (SG-1100):
+_Firewall (SG-1100):_
 -	Modem will connect to WAN port with an ISP assigned IP
 -	pfSense: 192.168.50.1 (static)
 -	NSM: 192.168.50.2 (static, LAN port)
@@ -143,7 +145,7 @@ Firewall (SG-1100):
 -	SW1: 192.168.100.1 (OPT port)
 -	Setup 100 VLAN for the wireless network
 
-SW (TP-Link):
+_Switch (TP-Link):_
 -	FW: 192.168.100.1 (OPT port)
 -	Wired connections: 192.168.100.0/24 (LAN ports)
 -	Setup 100 VLAN for wireless network
@@ -154,14 +156,14 @@ SW (TP-Link):
 **Methodology 2:**
 
 I didn’t start from the very beginning, but all the steps are included. Here is the process to create only two networks (internal and guest):
-1.	Restart Modem
+1. Restart Modem
 
-FW:
+_Firewall:_
 
 2.	Create FW static 192.168.50.1
 
-    a.	Interfaces > Assignments > LAN 
-    
+    a. Interfaces > Assignments > LAN 
+  
     b.	Static IP > 192.168.50.1
     
 3.	Connect NSM to FW over LAN
@@ -184,7 +186,7 @@ FW:
     
     c.	Firewall > Rules > OPT > Pass Any
 
-SW: 
+_Switch:_ 
 
 7.	Connect SW to FW over OPT
 
@@ -198,20 +200,20 @@ SW:
 
 After trying the implement the plan, these were the results:
 
-Setting the SW to a static IP on the FW,
+_Setting the SW to a static IP on the FW:_
 -	Did not automatically push to the SW. 
 -	Restarting the modem and SW did not push to the SW.
 Configured the 100 VLAN on FW and SW and tied the interface to OPT and tagged port 8,
 -	Did not create the 100 network. 
 
-Lessons Learned:
+_Lessons Learned:_
 -	YouTube is a best friend. A lot of the assistance in pfSense configurations came from YouTube. It helped in creating the VLAN, tagging it to the interface, and enabling it in the firewall. Given I’ve never configured anything in a network, I’m rather happy at the use of YouTube I used. 
 -	Remember common configurations. In the previous setups, a switch wasn’t a consideration in the initial configuration. In this change, the switch isn’t used effectively. We know that managed switches can use VLANs and VLANs are used to segregate networks. 
 
 
 **Topology 3:**
 
-Equipment:
+_Equipment:_
 -	Netgate SG-1100 pfSense Firewall/Router
 -	TP-Link JetStream 8-port Switch 
 -	Unifi AP AC Lite 
@@ -221,13 +223,13 @@ This will be the last topology of the plan because I’m going to try to keep ev
 <img width="678" alt="Screen Shot 2022-01-28 at 10 46 24 AM" src="https://user-images.githubusercontent.com/74877876/151577560-3131959a-61fd-40fe-8ff2-9615958c7c37.png">
 
 
-FW (SG-1100):
+_Firewall (SG-1100):_
 -	Modem will connect to WAN port with an ISP assigned IP
 -	pfSense: 192.168.50.1 (static)
 -	SW1: 192.168.50.2 (static over LAN)
 
 
-SW (TP-Link): 
+_Switch (TP-Link):_ 
 -	Setup static IP 192.168.50.2 
 -	NSM: 192.168.50.3 (static)
 -	Hardwire NSM - monitor all wired and wireless connections
@@ -235,16 +237,17 @@ SW (TP-Link):
 -	Wireless devices should not have internal access
 
 **Methodology 3:**
+
 Clearly there’s been an issue with Unifi Network Controller not detecting the AP, so this is lengthy. Towards the end, there will be general troubleshooting and some thought process. Everything will start on 192.168.1.0/24 since pfSense is defaulted to that and DHCP hasn’t completely detected the AP. Just setting everything on .1.0/24 to see if it’s possible. 
 
-FW:
+_Firewall:_
 1.	Configure LAN to be 192.168.1.1
 2.	Delete static IPs 
 3.	Delete FW rules
 4.	Restart DHCP server
 5.	Connect SW to LAN port 1
 
-SW: 
+_Switch:_ 
 1.	Factory reset switch
 2.	Go to default IP 192.168.0.1
 3.	Change the IP
@@ -254,7 +257,7 @@ SW:
 -	The below link will assist with creating a static IP on SW1: https://www.tp-link.com/us/support/faq/2122/ 
 -	The below link will assist with creating a static IP on SW1: https://www.tp-link.com/us/configuration-guides/accessing_the_switch/?configurationId=18231#_idTextAnchor002
 
-AP: 
+_AP:_ 
 1.	Factory reset AP
 2.	See if FW DHCP server sees it
 3.	Log into Unifi console and see if it can be detected
@@ -262,9 +265,11 @@ AP:
     a.	ssh into the AP via ssh ubnt@192.168.1.1 and ubnt
     b.	set-inform http://unifi:8080/inform or http://192.168.1.1/inform
 
-Results: there have been issues with the controller not detecting the AP, with messages like unresolvable or cannot be reached during set-inform. Factory reset the AP multiple times but no luck in the controller detecting the device. 
+_Results:_ 
 
-Troubleshooting:
+There have been issues with the controller not detecting the AP, with messages like unresolvable or cannot be reached during set-inform. Factory reset the AP multiple times but no luck in the controller detecting the device. 
+
+_Troubleshooting:_
 -	ping “unifi”, if it doesn’t resolve then it’s a DNS issue
 -	ping FW
 -	Disable DHCP on the AP
@@ -283,7 +288,7 @@ After following the “bricked” AP recovery instructions, this controller stil
 
 -	The below link will assist with creating VLANs in pfSense: https://www.youtube.com/watch?v=b2w1Ywt081o&t=290s 
 
-FW:
+_Firewall:_
 1.	Interfaces > Assignments > VLANs > Edit > VLAN 100 and default parent interface, “VLAN for AP”
 2.	Interface > Assignments > Add VLAN 100 on default interface
 3.	Interfaces > VLANs > Change interface description to “VLAN for AP on LAN” and enable the interface, setup static as 192.168.100.1/24
@@ -292,7 +297,7 @@ FW:
 
 -	The link below will assist with creating VLANs in TP-Link SW: https://www.youtube.com/watch?v=5ohLAFHnOHg 
 
-SW: 
+_Switch:_ 
 1.	Untag port 8 on VLAN 100. 
 2.	Look at PVID Settings and see what VLAN the ports are on
 3.	Plug in NSM into port 8 and make sure the IP is on the 100 network
@@ -303,7 +308,7 @@ SW:
 -	At the end of this video, he was still able to log into the switch even though he was on the VLAN network.
 -	Try tagging port 8 to port 3 and see if all traffic is being monitored.
 
-AP:
+_AP:_
 1.	Wireless Networks > Create Network > use VLAN 100
 -	According to the same person, you should be able to skip no devices detected. 
 
@@ -337,7 +342,7 @@ I tried a similar topology, but the switch had a dynamic IP, these were the resu
 Installing the controller on the NSM using https://help.ui.com/hc/en-us/articles/220066768-UniFi-Network-How-to-Install-and-Update-via-APT-on-Debian-or-Ubuntu automatically detected the AP. I setup the AP as a static IP with 192.168.50.8 in pfSense. During the adaptation of the AP, the IP was corrected from dynamic to static. No other steps or troubleshooting was required for the AP to function. Setup a guest network within 192.168.50.0/24 on the AP. Verified 192.168.50.1, 192.168.50.2, and 192.168.50.3 cannot be reached from the guest network. Verified the static IPs are correct, DHCP is correct, and the firewall rules are correct. 
 
 
-Lessons Learned:
+_Lessons Learned:_
 1.	Every device, wired or wireless, is on the same network. The whole point of this homelab is to create a strong network and not having a different ‘guest’ network defeats that purpose. 
 2.	The AP is having issues creating a guest network. The Unifi Controller is unable to login via the web interface, only the mobile app. Even then, a guest network cannot be created. 
 3.	If the AP were to be setup on it’s own VLAN, will the NSM detect it? Since it’s a separate network, I doubt the NSM will detect it. Try tagging port 8 to port 2 and see if all traffic is monitored.
@@ -349,18 +354,18 @@ Lessons Learned:
 
 **Conclusions:**
 
-Since the previous lab, 
+_Since the previous lab:_ 
 -	I learned when to stop and know when to move on from a step. In the initial topology, I came up with the topology, the IPs I wanted, and the test cases. I didn’t try to just make something work, but I had a plan and I worked on working the plan. 
 -	I was more process oriented and didn’t make as many assumptions, like assuming pfSense could be loaded onto the routers or too much over-planning. In this lab, I assumed a VLAN should’ve been created. I did better in planning the setup with the ports and the connections. 
 
-Going forward, 
+_Going forward:_ 
 -	Don’t relay too much on YouTube. It takes away from what you learn. I only actually learned when I had to struggle to find options myself. I connected the controller and AP need to be on different IPs.
 -	Step away from the project and think for yourself. I should’ve been relaxed and confident in my abilities in this lab. I would’ve connected that the controller and AP need to be on different APs.  
 -	Find the official documentation. Initially, I tried to install the controller on Ubuntu using a YouTube video. The installation ended up failing. I should’ve tried harder to find the official documentation for the install. It took some digging, but I should’ve started there. 
 -	Sleep is important. There were a few days in there were I worked on this project all day long, didn’t take a break, and got only a few hours of sleep. 
 -	Work the problem and stay calm. Slow down. Manage the chaos yourself. If you’re scared of it, jump in because that’s the only way you’ll learn. 
 
-Future Considerations:
+_Future Considerations:_
 -	Connect an AP-configured router to the switch and creating another network like a guest network. This will only be after getting port 8 on a different VLAN and the AP on a different network. 
 -	Ping 192.168.50.1, 192.168.50.2, 192.168.50.3 and see if they can be reached from the the AP.
 
