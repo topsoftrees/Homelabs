@@ -49,15 +49,10 @@ You might have to change the versions but at the time of this setup, Nagios Core
 
 
 **Common Nagios Core Commands:**
-
-sudo systemctl start nagios.service
-
-sudo systemctl stop nagios.service
-
-sudo systemctl restart nagios.service
-
-sudo systemctl status nagios.service
-
+- sudo systemctl start nagios.service
+- sudo systemctl stop nagios.service
+- sudo systemctl restart nagios.service
+- sudo systemctl status nagios.service
 
 **Add monitors:**
 
