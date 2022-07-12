@@ -30,7 +30,7 @@ After passing the exam, I wanted to setup a firewall. It was so frustrating that
 
 **Project 8.4:** *NSM Setup - Nagios Core* (5/15/22-) - Setting up Nagios Core to monitor router/firewall and switch.
 
-**Project 9:** *Snort Rules* (6/4/22-) - Configuring my own Snort rules. 
+**Project 9:** *Snort Rules - Win* (6/4/22, 7/10/22-7/12/22) - Configuring my own Snort rules. 
 
 
 
