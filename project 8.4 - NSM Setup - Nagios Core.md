@@ -1,8 +1,5 @@
 # Nagios Setup
 
-What's the difference between Splunk Enterprise and Nagios Core? 
-
-
 You might have to change the versions but at the time of this setup, Nagios Core is running 4.4.7 and the plugins run 2.4.0.
 
 **Run the following on the monitor:**
