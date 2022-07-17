@@ -30,17 +30,17 @@ This is the first round of rules - I'll still be updating them over time. Since 
 
 **Services that shouldn't be running:**
 - Resource: Current Network Setup
-> block tcp any any -> 192.168.50.0/24 389 (msg: "LDAP attempt"; sid: 10000009; rev:001;)
+> reject tcp any any -> 192.168.50.0/24 389 (msg: "LDAP attempt"; sid: 10000009; rev:001;)
 > 
-> block udp any any -> 192.168.50.0/24 389 (msg: "LDAP attempt"; sid: 10000010; rev:001;)
+> reject udp any any -> 192.168.50.0/24 389 (msg: "LDAP attempt"; sid: 10000010; rev:001;)
 > 
-> block udp any any -> 192.168.50.0/24 161 (msg: "SNMP attempt"; sid: 10000011; rev:001;)
+> reject udp any any -> 192.168.50.0/24 161 (msg: "SNMP attempt"; sid: 10000011; rev:001;)
 > 
-> block udp any any -> 192.168.50.0/24 137 (msg: "NetBIOS Name Services attempt"; sid: 10000012; rev:001;)
+> reject udp any any -> 192.168.50.0/24 137 (msg: "NetBIOS Name Services attempt"; sid: 10000012; rev:001;)
 > 
-> block tcp any any -> 192.168.50.0/24 445 (msg: "SMB over TCP attempt"; sid: 10000013; rev:001;)
+> reject tcp any any -> 192.168.50.0/24 445 (msg: "SMB over TCP attempt"; sid: 10000013; rev:001;)
 > 
-> block tcp any any -> 192.168.50.0/24 3389 (msg: "RDP attempt"; sid: 10000014; rev:001;)
+> reject tcp any any -> 192.168.50.0/24 3389 (msg: "RDP attempt"; sid: 10000014; rev:001;)
 
 
 **SPAM:**
