@@ -7,7 +7,7 @@ This is the first round of rules - I'll still be updating them over time. Since 
 - Resource: IANA SSH Parameters
 > alert tcp any any -> 192.168.50.0/24 22 (msg: "SSH_PUBLICKEY_SUCCESS"; sid:10000001; rev:001;)
 > 
-> drop tcp !(192.168.50.0/24) any -> 192.168.50.0/24 22 (msg: "SSH_EXTERNAL_ATTEMPT"; sid:10000002; rev:001;)
+> reject tcp !(192.168.50.0/24) any -> 192.168.50.0/24 22 (msg: "SSH_EXTERNAL_ATTEMPT"; sid:10000002; rev:001;)
 > 
 > alert tcp any any -> 192.168.50.0/24 22 (msg: "SSH_PUBLICKEY_ACCESSED_DENIED"; sid:10000003; rev: 001;)
 
