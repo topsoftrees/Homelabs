@@ -32,7 +32,7 @@ After passing the exam, I wanted to setup a firewall. It was so frustrating that
 
 **Project 9:** *Snort Rules - Win* (6/4/22, 7/10/22-7/12/22) - Configuring my own Snort rules. 
 
-**Project 10:** *Automating Homelab Deployment* - Creating an image of the homelab. 
+**Project 10:** *Automating Homelab Deployment* (8/24/22) - Creating an image of the homelab. 
 
 **Project 11:** *Automating Docker Image of Homelab Deployment* - Using containers for the homelab image.
 
