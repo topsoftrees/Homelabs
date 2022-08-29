@@ -175,3 +175,9 @@ drop tcp 45.66.249.32 any -> 192.168.0.0/16 any (msg: "Malware attempt"; sid: 30
 drop tcp 195.88.24.153 any -> 192.168.0.0/16 any (msg: "Malware attempt"; sid: 30000048; rev:001;)
 ```
 
+## Helpful Links
+- IANA SSH Parameters: https://www.iana.org/assignments/ssh-parameters/ssh-parameters.xhtml
+- IANA ICMP Parameters: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
+- IANA DNS Parameters: https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml
+- IANA TCP Parameters: https://www.iana.org/assignments/tcp-parameters/tcp-parameters.xhtml
+- Cisco Talos: https://www.talosintelligence.com/
