@@ -1,5 +1,7 @@
 # Automating Homelab Deployment - Docker
 ```bash
+sudo apt update && apt -y upgrade 
+sudo apt install net-tools 
 sudo apt install docker.io -y
 
 # Since we want to monitor thehome network, we'll need to create a network then tie it to the containers
@@ -35,3 +37,17 @@ docker network create -d ipvlan --subnet 192.168.50.0/24 --gateway 192.168.50.1 
 
 # If the above doesn't make sense, please check out https://www.youtube.com/watch?v=bKFMS5C4CG0. 
 ```
+
+## Possible Errors
+If you try to run “docker pull [image]” and recieve the following error: **Error response from daemon: manifest for [image]:latest not found: manifest unknown: manifest unknown.**
+The image doesn’t pull the latest so the version needs to be added. You'll need to run 
+```bash
+docker pull [image]:[latest-version-number]
+```
+
+## Helpful Resources 
+- [https://hub.docker.com/r/mikesplain/openvas](https://hub.docker.com/r/mikesplain/openvas)
+- [https://hub.docker.com/r/greenbone/openvas-scanner](https://hub.docker.com/r/greenbone/openvas-scanner)
+- Indexer: [https://hub.docker.com/r/splunk/splunk](https://hub.docker.com/r/splunk/splunk)
+- Universal Forwarder: [https://hub.docker.com/r/splunk/universalforwarder](https://hub.docker.com/r/splunk/universalforwarder)
+- NetworkChuck Docker Networking: [https://www.youtube.com/watch?v=bKFMS5C4CG0](https://www.youtube.com/watch?v=bKFMS5C4CG0)
