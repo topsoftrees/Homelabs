@@ -7,75 +7,74 @@ I've setup Splunk about 5 times with an identical deployment but haven't clearly
 - Splunk shouldn't be running as root so we'll be escalating admin each time. 
 
 **Commands to run on the Indexer:**
-1. sudo apt update && apt -y upgrade 
-2. sudo apt install wget
-3. wget -o splunkversion.tgz "splunk.com/splunkversion.tgz" 
-4. mv "splunkversion.tgz" "splunk.tgz"
-5. sudo tar xvzf splunk.tgz -C /opt
-6. cd /opt/splunk/bin
-7. sudo ./splunk start --answer-yes --accept-license
-8. http://localhost:8000
-9. Login to Splunk Web > Settings > Forwarding and Receiving
-10. Configure Forwarding > Add new > receiving hostname/IP:9997 (192.168.50.4:9997) 
-11. Configure Receiving > Add new > receiving port (9997) 
-12. Forwarding Defaults > Yes to store a local copy of the indexed data on the forwarder
-13. sudo ./splunk enable app SplunkForwarder -auth username:password
-14. sudo ./splunk restart
-15. sudo ./splunk add monitor /var/log/snort/alert **# Snort running in promiscuous mode on the monitor**
+```bash
+sudo apt update && apt -y upgrade 
+sudo apt install wget
+wget -o splunkversion.tgz "splunk.com/splunkversion.tgz" 
+mv "splunkversion.tgz" "splunk.tgz"
+sudo tar xvzf splunk.tgz -C /opt
+cd /opt/splunk/bin
+sudo ./splunk start --answer-yes --accept-license
+# Launch http://localhost:8000
+# Login to Splunk Web > Settings > Forwarding and Receiving
+# Configure Forwarding > Add new > receiving hostname/IP:9997 (192.168.50.4:9997) 
+# Configure Receiving > Add new > receiving port (9997) 
+# Forwarding Defaults > Yes to store a local copy of the indexed data on the forwarder
+sudo ./splunk enable app SplunkForwarder -auth username:password
+sudo ./splunk restart
+sudo ./splunk add monitor /var/log/snort/alert **# Snort running in promiscuous mode on the monitor**
+```
 
     
 **Commands to run on Forwarder:** 
-1. sudo apt update && apt -y upgrade 
-2. sudo apt install wget
-3. wget -o splunkforwarderverision.tgz "splunk.com/splunkforwarderversion.tgz"
-4. mv "splunkforwarderverision.tgz" "splunkforwarder.tgz"
-5. sudo tar xvzf splunkforwarder.tgz -C /opt
-6. cd /opt/splunkforwarder/bin
-7. sudo ./splunk start --answer-yes --accept-license
-8. Enter Splunk Credentials
+```bash 
+sudo apt update && apt -y upgrade 
+sudo apt install wget
+wget -o splunkforwarderverision.tgz "splunk.com/splunkforwarderversion.tgz"
+mv "splunkforwarderverision.tgz" "splunkforwarder.tgz"
+sudo tar xvzf splunkforwarder.tgz -C /opt
+cd /opt/splunkforwarder/bin
+sudo ./splunk start --answer-yes --accept-license
+# Enter Splunk Credentials
+```
 
 _Light Forwarder - on the Forwarder:_
-1. sudo ./splunk add forward-server 192.168.50.4:9997 -auth username:password
-2. sudo ./splunk restart
-3. sudo ./splunk add monitor /var/log/auth.log
+```bash
+sudo ./splunk add forward-server 192.168.50.4:9997 -auth username:password
+sudo ./splunk restart
+sudo ./splunk add monitor /var/log/auth.log
+```
 
 _Heavy Forwarder - on the forwarder:_
-1. sudo ./splunk add forward-server 192.168.50.4:9997
-2. sudo ./splunk restart
-3. sudo ./splunk set deploy-poll 192.168.50.4:8089
-4. sudo ./splunk restart
-      
+```bash
+sudo ./splunk add forward-server 192.168.50.4:9997
+sudo ./splunk restart
+sudo ./splunk set deploy-poll 192.168.50.4:8089
+sudo ./splunk restart
+```
+
       
 **Add the Inputs:**
-1. sudo -i **# the local directory in the next line needs root privileges**
-2. cd /opt/splunk/etc/apps/search/local **# the local directory will show up when you start forwarding a file**
-3. nano inputs.conf 
-4. Add the following to /opt/splunk/etc/apps/search/local/inputs.conf:
-    > [splunktcp://9997]
-    > 
-    > connection_host = 192.168.50.4
-    > 
-    > [monitor:///var/log/snort/syslog]
-    > 
-    > disabled=false
-    > 
-    > index=main
-    > 
-    > sourcetype = controller_syslog
-    > 
-    > source = syslog
-    > 
-    > [monitor:///var/log/snort/auth.log]
-    > 
-    > disabled=false
-    > 
-    > index=main
-    > 
-    > sourcetype = controller_auth
-    > 
-    > source = auth
-5. cd /opt/splunk/bin
-6. sudo ./splunk restart
+```bash
+sudo -i **# the local directory in the next line needs root privileges**
+cd /opt/splunk/etc/apps/search/local **# the local directory will show up when you start forwarding a file**
+nano inputs.conf 
+# Add the following to /opt/splunk/etc/apps/search/local/inputs.conf:
+    [splunktcp://9997]
+    connection_host = 192.168.50.4
+    [monitor:///var/log/snort/syslog]
+    disabled=false
+    index=main
+    sourcetype = controller_syslog
+    source = syslog
+    [monitor:///var/log/snort/auth.log]
+    disabled=false
+    index=main
+    sourcetype = controller_auth
+    source = auth
+cd /opt/splunk/bin
+sudo ./splunk restart
+```
 
 
 **Important Notes:**
