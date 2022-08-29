@@ -34,7 +34,7 @@ After passing the exam, I wanted to setup a firewall. It was so frustrating that
 
 **Project 10:** *Automating Homelab Deployment* (8/24/22) - Creating an image of the homelab. 
 
-**Project 11:** *Automating Docker Image of Homelab Deployment* - Using containers for the homelab image.
+**Project 11:** *Automating Homelab Deployment - Docker* (8/25/22-8/27/22, 8/29/22)- Using containers for the homelab image.
 
 
 
