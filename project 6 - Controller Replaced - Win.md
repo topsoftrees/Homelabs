@@ -29,35 +29,25 @@ This was the initial plan before anything was done:
 **Implementation & Troubleshooting:**
 
 - When trying to run the controller on the new machine, the site could not be pulled up. Running sudo service unifi start and sudo service unifi restart resulted in the following error: 
-
-    > Active: failed (Result: start-limit-hit)
-    > 
-    > unifi systemd[1]: unifi.service: Scheduled restart job, restart counter is at 2.
-    > 
-    > unifi systemd[1]: Stopped unifi.
-    > 
-    > unifi systemd[1]: Starting unifi...
-    > 
-    > unifi unifi.init[6393]:  * Starting Ubiquiti UniFi Controller unifi
-    > 
-    > unifi unifi.init[6522]: Cannot locate Java Home
-
+```bash
+    Active: failed (Result: start-limit-hit)
+    unifi systemd[1]: unifi.service: Scheduled restart job, restart counter is at 2.
+    unifi systemd[1]: Stopped unifi.
+    unifi systemd[1]: Starting unifi...
+    unifi unifi.init[6393]:  * Starting Ubiquiti UniFi Controller unifi
+    unifi unifi.init[6522]: Cannot locate Java Home
+```
 which is clearly a Java installation error. 
 
 - Reinstalled Java, received the following error: 
-
-    > Active: failed (Result: start-limit-hit)
-    > 
-    > unifi systemd[1]: unifi.service: Scheduled restart job, restart counter is at 2.
-    > 
-    > unifi systemd[1]: Stopped unifi.
-    > 
-    > unifi systemd[1]: Starting unifi...
-    > 
-    > unifi unifi.init[6393]:  * Starting Ubiquiti UniFi Controller unifi
-    > 
-    > unifi unifi.init[6522]: Cannot locate monogod
-
+```bash
+    Active: failed (Result: start-limit-hit)
+    unifi systemd[1]: unifi.service: Scheduled restart job, restart counter is at 2.
+    unifi systemd[1]: Stopped unifi.
+    unifi systemd[1]: Starting unifi...
+    unifi unifi.init[6393]:  * Starting Ubiquiti UniFi Controller unifi
+    unifi unifi.init[6522]: Cannot locate monogod
+```
 - Researched the error message which pretty much came to a full reinstall from a Ubiquity employee’s GitHub, Glenn R. In researching for the previous projects, Glenn R solved a lot of the issues and provided insight to all pages I’ve looked at. 
 
 - Uninstalled Unifi controller via sudo dpkg -P unifi. Fresh install of Unifi controller via Glenn R’s GitHub which installs the necessary packages based on the OS and Java requirements: https://community.ui.com/questions/UniFi-Installation-Scripts-or-UniFi-Easy-Update-Script-or-UniFi-Lets-Encrypt-or-UniFi-Easy-Encrypt-/ccbc7530-dd61-40a7-82ec-22b17f027776 
