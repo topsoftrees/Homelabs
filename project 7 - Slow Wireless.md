@@ -2,7 +2,7 @@
 
 Since implementing the new controller, the wireless has been slow. 
 
-**Contents:**
+## Contents:
 1.	Issue
 2.	Background Info
 3.	Troubleshooting – Channels
@@ -11,17 +11,17 @@ Since implementing the new controller, the wireless has been slow.
 6.	Resolution
 7.	Lessons Learned
 
-**Issue:**
+## Issue:
 - Wireless speeds have been running slow since the old NSM’s battery went dead (project 5). The speeds have been ~150 Mbps. 
 
 
-**Background Info:**
+## Background Info:
 -	Unifi AP-AC Lite runs a guest network
 -	Wireless devices connect to the guest network
 -	Restarted router – does not resolve issue. 
 
 
-**Troubleshooting – Channels:**
+## Troubleshooting – Channels:
 
 There’s one device that’s been having issues connecting to the 192.168.100.1/24 network and is prompting for the network’s channel to be changed. 
 
@@ -29,7 +29,7 @@ There’s one device that’s been having issues connecting to the 192.168.100.1
 -	Reset the network settings – does not resolve issue.
 
 
-**Troubleshooting – VLAN Setup:**
+## Troubleshooting – VLAN Setup:
 
 Since the AP is connected to a switch, a VLAN should be used so the AP cannot access the internal network. Ideally, the internal network would be 192.168.50.1/24 and the external is 192.168.100.1/24. 
 
@@ -67,7 +67,7 @@ The below links assisted with setting up a VLAN:
 -	Unifi – L3 Adoption for Remote Unifi Network Applications: https://help.ui.com/hc/en-us/articles/204909754-UniFi-Device-Adoption-Methods-for-Remote-UniFi-Controllers#6
 
 
-**LAN vs. Guest:**
+## LAN vs. Guest:
 
 After creating the other network, the internet was still running slow. In Unifi research, there’s supposed to be a considerable speed difference between the internal and external network. I’ve been able to verify this with the NSM speed and the speed of our personal devices. I moved the 150 VLAN to an internal network then went to pfSense to disable internal access using firewall rules. 
 
@@ -79,7 +79,7 @@ _In pfSense:_
 - Pinged 192.168.50.1, 192.168.50.2, 192.168.50.3 from a host on 192.168.150.1/24 which was unreachable. 
 
 
-**Resolution:**
+## Resolution:
 
 Created the VLAN in pfSense, tagged port 1 and 8, and created a VLAN network in Unifi:
 
@@ -101,7 +101,7 @@ _In Unifi:_
 _In pfSense:_
 1.	Firewall > Rules > VLAN 150 > Pass any protocol that is NOT destination LAN
 
-**Lessons Learned:**
+## Lessons Learned:
 
 I’ve made lots of progress in documentation and thinking through the process. In everything I’ve learned from these projects, it been beneficial in my job too. 
 1.	**VLANs should be used with switches** – You’re specifying which networks to be routed through which ports. In this project, it’s being done – therefore, VLANS need to be used. I tried pushing them off for as long as possible because there was just a guest network configured. Since the internal network runs significantly fast than the external, it pretty much forced my hand to create a VLAN and another network. 
