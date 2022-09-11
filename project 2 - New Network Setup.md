@@ -2,7 +2,7 @@
 
 This is basically a continuation of the previous lab. The previous lab resulted in both routers not having the capability for a firewall and to connect to each other. A different, more advanced piece of equipment is needed – I purchased the Netgate SG-1100 pfSense firewall/router.
 
-## **Contents:**
+## Contents:
 
 1. Objectives
 2. Proposed Topology
@@ -16,7 +16,7 @@ This is basically a continuation of the previous lab. The previous lab resulted 
 10. Results and Considerations 3
 11. Conclusions
 
-## **Objectives:**
+## Objectives:
 -	Be more efficient in the planning and implementation. 
 -	Create fast test cases. 
 -	Know the equipment and what it’s capable of. 
@@ -25,7 +25,7 @@ This is basically a continuation of the previous lab. The previous lab resulted 
 -	Build configuration skills and try not relying so heavily on YouTube for configurations.
 -	Document the troubleshooting process.
 
-## **Proposed Topology:**
+## Proposed Topology:
 
 _Equipment:_
 -	Netgate SG-1100 pfSense Firewall/Router
@@ -52,7 +52,7 @@ _Router (ASUS):_
 
 It might look confusing but there will be 3 networks created - 192.168.50.0/24 for FW, 192.168.100.0/24 for wired, 192.168.150.0/24 for wireless. 
 
-## **Methodology 1:**
+## Methodology 1:
 
 Creating two more networks will divide the network into 3. Here is the process:
 
@@ -79,7 +79,7 @@ _Test cases:_
 4. OPT-LAN, wireless 
 
 
-## **Results and Considerations 1:**
+## Results and Considerations 1:
 
 After trying the implement the plan, these were the results:
 
@@ -114,7 +114,7 @@ _Lessons Learned:_
 - Implement the plan and write our lessons learned from the results. Clearly stating what I did, and its outcomes helped immensely. Turning these into lessons learned will help for later homelabs in understanding networking. 
 
 
-## **Topology 2:**
+## Topology 2:
 
 _Equipment:_ 
 - Netgate SG-1100 pfSense Firewall/Router
@@ -143,7 +143,7 @@ _Switch (TP-Link):_
 - Wireless devices should not have internal access
 
 
-## **Methodology 2:**
+## Methodology 2:
 
 I didn’t start from the very beginning, but all the steps are included. Here is the process to create only two networks (internal and guest):
 
@@ -164,7 +164,7 @@ _Switch:_
 2. Log into SW at 192.168.100.1
 3. L2 Features > VLAN > ‘+’ > 100 VLAN and tag all ports **# Set up 100 VLAN and tag all ports**
 
-## **Results and Considerations 2:**
+## Results and Considerations 2:
 
 After trying the implement the plan, these were the results:
 
@@ -178,7 +178,7 @@ _Lessons Learned:_
 - Remember common configurations. In the previous setups, a switch wasn’t a consideration in the initial configuration. In this change, the switch isn’t used effectively. We know that managed switches can use VLANs and VLANs are used to segregate networks. 
 
 
-## **Topology 3:**
+## Topology 3:
 
 _Equipment:_
 - Netgate SG-1100 pfSense Firewall/Router
@@ -202,7 +202,7 @@ _Switch (TP-Link):_
 - Connect AP to port 8 (AP is PoE and port 8 is the PoE port)
 - Wireless devices should not have internal access
 
-## **Methodology 3:**
+## Methodology 3:
 
 Clearly there’s been an issue with Unifi Network Controller not detecting the AP, so this is lengthy. Towards the end, there will be general troubleshooting and some thought process. Everything will start on 192.168.1.0/24 since pfSense is defaulted to that and DHCP hasn’t completely detected the AP. Just setting everything on .1.0/24 to see if it’s possible. 
 
@@ -301,7 +301,7 @@ AP IP: 192.168.50.8 (port 8)
     a.	ssh ubnt@192.168.50.3
     b.	set-inform http://192.168.50.8/inform 
 
-## **Results and Considerations 3:**
+## Results and Considerations 3:
 
 I tried a similar topology, but the switch had a dynamic IP, these were the results:
 
@@ -318,7 +318,7 @@ _Lessons Learned:_
 5.	Because there’s an issue, don’t just go to YouTube, think about the issue. I saw the unresolvable message and thought DNS. It didn’t look to me like there would be a DNS issue according to pfSense, so I assumed DHCP because it didn’t appear to be fully configured. I was slow in realizing this, but I eventually figured it out (and on my own) that the controller and AP will be on different IPs, and the controller is local so it should be based on the NSM IP. 
 6.	Try not to be overwhelmed when looking at new equipment. I should’ve trusted the networking basics instead of panicking and googling how to do everything in Unifi. This led me to not connecting controller needs an IP and so does the AP.
 
-## **Conclusions:**
+## Conclusions:
 
 _Since the previous lab:_ 
 -	I learned when to stop and know when to move on from a step. In the initial topology, I came up with the topology, the IPs I wanted, and the test cases. I didn’t try to just make something work, but I had a plan and I worked on working the plan. 
