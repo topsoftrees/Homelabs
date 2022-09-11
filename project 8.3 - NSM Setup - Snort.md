@@ -26,7 +26,7 @@ sudo nano local.rules
 # Add rules here
 ```
 
-**Helpful Commands:**
+## Helpful Commands:
 - snort —version # confirm snort is installed
 - ls /etc/snort # just list all snort files because this is where snort runs
 - /etc/snort/rules # where rules are
@@ -36,8 +36,7 @@ sudo nano local.rules
 - .log files aren’t human readable - need to run in Alert mode (-A) for it to be decoded
 
 
-**Helpful Documentation:** 
-
+## Helpful Documentation:
 - Rules: https://snort.org/downloads/#rule-downloads
 - Snort Documentation: https://snort.org/documents
 - man snort
