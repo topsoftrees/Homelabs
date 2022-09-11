@@ -1,4 +1,4 @@
-# LOCAL RULES
+# Snort Local Rules
 
 This is the first round of rules - I'll still be updating them over time. Since there are so many spam and malware IP addresses, I split this to be 2- and 3- id numbers for readability and easy updates. For a future project, I may try to write a python script to pull the spam and malware IPs from Cisco Talos to automatically add more rules. 
 
