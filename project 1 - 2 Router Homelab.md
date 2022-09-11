@@ -2,7 +2,7 @@
 
 I have two routers and I’m going to try to implement a Network Security Monitor (NSM) to monitor all traffic from all networks. Please read the entire thing first. I documented the entire process – that means the failures too. The entire project ended being a fail. I documented so much and want this published to show a growth and thought process behind decisions, and to document things I’ve done when I do future homelabs. I’ve done another homelab similar to this but I didn’t document everything, so I don’t remember the exact layout.  
 
-**Contents:**
+## **Contents:**
 
 1. Objectives
 2. Proposed topology
@@ -16,7 +16,7 @@ I have two routers and I’m going to try to implement a Network Security Monito
 10. Learning
 11. Conclusions
 
-**Objectives:**
+## **Objectives:**
 -	Deploy a NSM
 -	Understand more about networking the equipment I have
 -	Understand network tap vs port mirroring
@@ -25,7 +25,7 @@ I have two routers and I’m going to try to implement a Network Security Monito
 -	Monitor all DNS
 -	Monitor whenever someone connects to one of my networks
 
-**Proposed Topology:**
+## **Proposed Topology:**
 
 _Initial topology:_ 
 
@@ -77,7 +77,7 @@ _Setup port mirroring on the TP-Link router and connect the NSM:_
 3. Mirroring port 1, mirror port 2
 4. Hard wire NSM to port 2 on TP Link 
 
-**Considerations 1:**
+## **Considerations 1:**
 
 One of the goals of this lab is to get the proof-of-concept correct or close to correct before implementing it so I’ll be making some notes in the process. 
 
@@ -94,7 +94,7 @@ _Lessons Learned (it was a lot):_
 -	APs can be configured as Wifi-extenders or guest networks.
 -	You can connect a USB stick into your router, have the router recognize it, and treat it as a NAS or a network drive! I didn’t even know a NAS was a network drive, it makes sense, I just didn’t connect the two -_-. 
 
-**Changed Plan 1:**
+## **Changed Plan 1:**
 
 After going through the first phase of considerations, the homelab is going to be re-worked to the following:
 
@@ -114,7 +114,7 @@ _R2 (TP-Link):_
 -	DHCP will be disabled and with a static IP of 192.168.50.2
 -	R1 will connect to port 1
 
-**Considerations 2:**
+## **Considerations 2:**
 1.	*How will the AP be monitored?* Will this just happen because we port mirror R2 to the NSM? Port mirroring is sending a copy of the network packets seen on one port to another switch port. Since TP-Link is part of ASUS LAN, I believe port forwarding will be enough to monitor both networks.
 2.	When trying to setup how the networks will be monitored, I came across this video: https://www.youtube.com/watch?v=J5QJb3O19zI. It looks like this is what I’m wanting to setup. Since I don’t have experience in networking and I’m trying to understand it more, it feels good that I’ve done the research, came up with a plan myself, then went looking, instead of just looking for the answer. In this video, he states to change the channels to something that won’t overlap – channels 1, 6, and 11 don’t overlap. I haven’t learned about channels yet, but it looks like if networks are setup on the same channel, there will be collisions, and the less the channels overlap, the less collisions and faster the network will be. This came up in Considerations #1, if the network speed will decrease with multiple networks – I’ll change the channels to increase the network speed. 
 3.	*Is port mirroring safe?* It’s as safe as you make the device that’s connected to WAN. 
@@ -122,7 +122,7 @@ _R2 (TP-Link):_
 5.	*How can I implement a firewall with two routers and a computer with one NIC?* These two videos helped:
 https://cs.wmich.edu/~rhardin/cs4540/fpSense.pdf, https://www.youtube.com/watch?v=FPgPHJvLmh0 
 
-**Changed Plan 2:**
+## **Changed Plan 2:**
 
 _Changing the plan to the following:_ 
 
@@ -142,7 +142,7 @@ _R2:_
 -	Setup with internal and external networks
 -	Devices will connect to external network
 
-**Implementing the Plan:**
+## **Implementing the Plan:**
 1.	Verified both ASUS and TP-Link have USB ports
 2.	Reset ASUS router using method 1
 3.	Setup ASUS network 
@@ -162,12 +162,12 @@ Challenge: how should the interfaces connect? --------WAN-FW-LAN ------ WAN or L
 - TP-link-192.168.0.1
 - Asus 192.168.50.1
 
-**Lessons Learned:**
+## **Lessons Learned:**
 1.	*Know what’s your equipment before planning too in depth.* I didn’t even know if one of the routers had a USB port. I should’ve plugged each router in and seen if it picks up on pfSense. 
 2.	Draw out test cases and parameters to meet before testing the hardware.
 3.	Predict the result of the test cases. 
 
-**Learning:**
+## **Learning:**
 
 Part of the issue with this project is not finding test cases and parameters before working on the hardware. Here are the test cases I drew up because I couldn’t keep everything straight: 
 
@@ -287,7 +287,7 @@ Part of the issue with this project is not finding test cases and parameters bef
 
 - We could try test cases where the NSM is attached to R2, but that would be arbitrary. 
 
-**Conclusions:**
+## **Conclusions:**
 
 In doing this failure of a lab, I’m considering it a win. I haven’t forced myself to document this extensively or explain my thought process before. Here are some conclusions I came to in doing this lab: 
 1.	Plan but don’t over-plan. Know your equipment and if you can produce the result you want. I should’ve checked to see if my routers had USB ports and if they did, see if the router detects the USB. Even though I didn’t know you could just boot into the USB, I should’ve done some more intense digging to see if my desired goal was possible. 
