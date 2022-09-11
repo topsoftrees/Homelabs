@@ -17,7 +17,7 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub [client username]@[client IP]
 ssh [server IP]@[server IP]
 ```
 
-**Helpful Documentation:**
+## Helpful Documentation:
 
 - Ubuntu SSH Keys: [https://help.ubuntu.com/community/SSH/OpenSSH/Keys](https://help.ubuntu.com/community/SSH/OpenSSH/Keys)
 - Generate SSH Key: [https://www.ssh.com/academy/ssh/keygen](https://www.ssh.com/academy/ssh/keygen)
