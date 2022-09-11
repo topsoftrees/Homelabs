@@ -48,16 +48,12 @@ sudo make install
 # Launch http://localhost/nagios
 ```
 
-**Common Nagios Core Commands:**
+## Common Nagios Core Commands:
 - sudo systemctl start nagios.service
 - sudo systemctl stop nagios.service
 - sudo systemctl restart nagios.service
 - sudo systemctl status nagios.service
 
-**Add monitors:**
-
-
-
-**Helpful Links:**
+## Helpful Links:
 - Installing Nagios Core from source: https://support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source-96.html#Ubuntu
 - Monitoring Routers and Switches: https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/monitoring-routers.html
