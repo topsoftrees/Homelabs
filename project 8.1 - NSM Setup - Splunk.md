@@ -77,13 +77,11 @@ sudo ./splunk restart
 ```
 
 
-**Important Notes:**
+## Important Notes:
 - Actual links have been redacted as they require Splunk logins. 
 - Splunk default ports: Web UI: 8000, Management/splunkd: 8089, Forwarders to Indexer: 9997.
 
-
-
-**Helpful Links:**
+## Helpful Links:
 - Splunk Enterprise Install on Linux: https://docs.splunk.com/Documentation/Splunk/8.2.6/Installation/InstallonLinux
 - Start Splunk Enterprise for the first time: https://docs.splunk.com/Documentation/Splunk/8.2.6/Installation/StartSplunkforthefirsttime
 - About deployment server and forwarder management: https://docs.splunk.com/Documentation/Splunk/8.2.6/Updating/Aboutdeploymentserver
