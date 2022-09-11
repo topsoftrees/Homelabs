@@ -6,19 +6,19 @@ I took to CTFs and homelabs. In trying to tackle more advanced homelabs and CTFs
 
 After passing the exam, I wanted to setup a firewall. It was so frustrating that I didn't document it before because _I had_ tried it already, I couldn't remember the different setups I had tried. My goal in starting these homelabs and documentation in 2022 is to learn, see fails and progress, train of thought, and fingers crossed, a security position. 
  
-**Project 1:** *2 Router Homelab - Fail* (1/11/22-1/15/22) - Firewall homelab that failed. 
+**Project 1:** *2 Router Homelab* (1/11/22-1/15/22) - Firewall homelab that failed. 
  
-**Project 2:** *New Network Setup - Win* (1/21/22, 1/23/22-1/27/22) - Firewall homelab that works. 
+**Project 2:** *New Network Setup* (1/21/22, 1/23/22-1/27/22) - Firewall homelab that works. 
 
-**Project 3:** *Unexpected Power Outage - Win* (2/1/22-2/2/22) - Troubleshooting a power outage. 
+**Project 3:** *Unexpected Power Outage* (2/1/22-2/2/22) - Troubleshooting a power outage. 
 
-**Project 4:** *Some Fail to Connect - Temp* (2/6/22-2/7/22) - Troubleshooting some devices don't connect to wifi.
+**Project 4:** *Some Fail to Connect* (2/6/22-2/7/22) - Troubleshooting some devices don't connect to wifi.
 
-**Project 5:** *NSM Failing - Win* (2/9/22) - Troubleshooting NIC and battery failing on NSM.
+**Project 5:** *NSM Failing* (2/9/22) - Troubleshooting NIC and battery failing on NSM.
 
-**Project 6:** *Controller Replaced - Win* (2/12/22) - Swapped out the network controller with a new device.
+**Project 6:** *Controller Replaced* (2/12/22) - Swapped out the network controller with a new device.
 
-**Project 7:** *Slow Wireless - Win* (3/15/22 - 3/19/22) - Troubleshooting slow wireless speeds. 
+**Project 7:** *Slow Wireless* (3/15/22 - 3/19/22) - Troubleshooting slow wireless speeds. 
 
 --Break to study for Juniper JNCIA-Sec-- 
 
@@ -34,7 +34,10 @@ After passing the exam, I wanted to setup a firewall. It was so frustrating that
 
 **Project 10:** *Automating Homelab Deployment* (8/24/22) - Creating an image of the homelab. 
 
-**Project 11:** *Automating Homelab Deployment - Docker* (8/25/22-8/27/22, 8/29/22)- Using containers for the homelab image.
+**Project 11:** *Automating Homelab Deployment - Docker* (8/25/22-8/27/22, 8/29/22) - Using containers for the homelab image.
 
+--Python Homelab-- 
 
+**Project 12:** *A Full Unifi Reset Homelab* (9/6/22-9/7/22) - Starting Unifi from scratch
 
+--Python Homelab--
