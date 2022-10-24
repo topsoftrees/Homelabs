@@ -41,3 +41,6 @@ After passing the exam, I wanted to setup a firewall. It was so frustrating that
 **Project 12:** *A Full Unifi Reset Homelab* (9/6/22-9/7/22) - Starting Unifi from scratch
 
 --Python Homelab--
+
+**Project 13:** *CIS Controls on NSM* - Adapting the CIS Benchmarks to my network
+
