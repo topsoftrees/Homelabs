@@ -65,6 +65,8 @@ It definitely seems like their content is for pentesting.
 ## Determination
 Determining to be true positive since the file was accessed according to the logs. The file and the logs are suspicious based on the processes performed but looking into the intent of BloodHound's GitHub, the file was used for pentesting.  
 
+While suspicious, not malicious. 
+
 ## Helpful Link
 - GitHub: https://github.com/BloodHoundAD/BloodHound
 - VirusTotal: https://www.virustotal.com/gui/home/upload 
